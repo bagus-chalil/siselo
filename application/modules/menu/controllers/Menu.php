@@ -49,7 +49,7 @@ class Menu extends CI_Controller
 		redirect('menu');
     }
 	public function submenu(){
-		$data['title'] = "Sub Menu Management";
+		$data['title'] = "Submenu Management";
 		$data['user'] = $this->db->get_where('user',['email'=>
 		$this->session->userdata('email')])->row_array();
 

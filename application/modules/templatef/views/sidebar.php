@@ -12,7 +12,7 @@
                 $queryMenu = "Select `user_menu`.`id`,`menu`
                             FROM `user_menu` JOIN `user_access_menu`
                             ON `user_menu`.`id`=`user_access_menu`.`menu_id`
-                            WHERE `user_access_menu`.`role_id`=$role_id
+                            WHERE `user_access_menu`.`role_id`=$role_id AND `user_menu`.`id` != 13
                             ORDER BY `user_access_menu`.`menu_id` ASC
                             ";
                 $menu = $this->db->query($queryMenu)->result_array();
@@ -24,14 +24,23 @@
                             $querySubMenu = "Select*
                                             FROM `user_sub_menu` 
                                             WHERE `menu_id`=$menuId
-                                            AND `is_active`=1
+                                            AND `is_active`=1 AND `menu_id` != 13
                             ";
                             $subMenu = $this->db->query($querySubMenu)->result_array();
                           ?>
             <?php foreach ($subMenu as $sm) : ?>
-            <li><a class="nav-link active" href="<?= base_url($sm['url']) ?>"><i class="<?= $sm['icon']; ?>"></i> <span><?= $sm['title'] ?></span></a></li> 
+              <?php if($title == $sm['title']) :?>
+              <li class="active">
+              <?php else : ?>
+                <li class="">
+              <?php endif; ?>
+              <a class="nav-link active" href="<?= base_url($sm['url']) ?>"><i class="<?= $sm['icon']; ?>"></i> <span><?= $sm['title'] ?></span>
+                </a>
+              </li> 
               <?php endforeach ?>
             <?php endforeach ?>
+            <li class="menu-header"> Ujian Online </li>
+            <li><a class="nav-link active" href="<?= base_url('Soal') ?>"><i class="fas fa-file-import"></i> <span> Halaman Ujian </span></a></li>
           </ul>
 
           <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

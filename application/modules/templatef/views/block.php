@@ -55,7 +55,13 @@
                 </div>
               </form>
               <div class="mt-3">
-                <a href="<?= base_url(); ?>">Back to Home</a>
+                <?php if ($this->session->userdata['role_id']==1) { ?>
+                  <a href="<?= base_url('Admin'); ?>">Back to Home</a>                 
+                <?php }else if ($this->session->userdata['role_id']==2){ ?>                                    
+                  <a href="<?= base_url('Guru'); ?>">Back to Home</a>                 
+                  <?php }else{ ?>
+                      <a href="<?= base_url('Kelas'); ?>">Back to Home</a>                 
+                  <?php } ?>
               </div>
             </div>
           </div>

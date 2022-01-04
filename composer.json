@@ -14,7 +14,8 @@
 	"prefer-stable": true,
 	"require": {
 		"php": ">=5.3.7",
-		"myth/auth": "^1.0@beta"
+		"myth/auth": "^1.0@beta",
+		"tecnickcom/tcpdf": "^6.4"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

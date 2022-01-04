@@ -37,13 +37,16 @@ class Login extends CI_Controller {
 					$data = [
 						'email' => $user['email'],
 						'role_id' => $user['role_id'],
+						'nisn' => $user['nisn'],
 						'name' => $user['name']
 					];
 					$this->session->set_userdata($data);
 					if ($user['role_id'] ==1){
 						redirect('Admin');
-					}else{
+					}else if($user['role_id'] ==2){
 						redirect('Website');
+					}else{
+						redirect('Kelas');
 					}
 				}else{
 					$this->session->set_flashdata('message','<div class="alert alert-danger text-center" role="alert">

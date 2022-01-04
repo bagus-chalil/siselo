@@ -1,126 +1,103 @@
-                        <!-- ============================================================== -->
-                        <!-- Container fluid  -->
-                        <!-- ============================================================== -->
-                        <div class="container-fluid">
-                            <!-- *************************************************************** -->
-                            <!-- Start Page Content -->
-                            <!-- ============================================================== -->
-                            <!-- multi-column ordering -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
+<div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
 
-                                            <?= $this->session->flashdata('message'); ?>
-
-                                            <h4 class="card-title">Tabel Daftar SubMenu</h4>
-                                            <h6 class="card-subtitle">On a per-column basis (i.e. order by a specific column and
-                                                then a secondary column if the data in the first column is identical), through the
-                                                <code> columns.orderData</code> option.
-                                            </h6>
-                                            <div class="table-responsive">
-
-                                                <a class="btn waves-effect waves-light btn-primary mb-3 mt-2 text-white" data-toggle="modal" data-target="#tambah-modal"> <i class="fa fa-plus"></i> Add New SubMenu</a>
-
-                                                <table id="multi_col_order" class="table table-striped table-bordered display no-wrap" style="width:100%">
-                                                    <thead class="bg-warning text-white text-center">
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Title</th>
-                                                            <th>Menu</th>
-                                                            <th>Url</th>
-                                                            <th>Icon</th>
-                                                            <th>Active</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="text-center">
-                                                        <?php $i = 1; ?>
-                                                        <?php foreach ($subMenu as $sm) : ?>
-                                                            <tr>
-                                                                <td><?= $i++; ?></td>
-                                                                <td><?= $sm['title']; ?></td>
-                                                                <td><?= $sm['menu']; ?></td>
-                                                                <td><?= $sm['url']; ?></td>
-                                                                <td><?= $sm['icon']; ?></td>
-                                                                <td><?= $sm['is_active']; ?></td>
-                                                                <td class="text-center">
-                                                                    <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url('tools/edit_Submenu/' . $sm['id']) ?>"> <i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                    <a class="btn waves-effect waves-light btn-danger text-white" href="<?= base_url('tools/delete_submenu/' . $sm['id']) ?>"> <i class="fa fa-trash"></i> Delete</a>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach; ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ============================================================== -->
-                            <!-- End PAge Content -->
-                            <!-- ============================================================== -->
+            <div class="page-heading">
+            <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>DataTable</h3>
+                            <p class="text-subtitle text-muted">For kelas to check they list</p>
                         </div>
-                        <!-- Tambah modal content -->
-                        <div id="tambah-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <section class="section">
+                    <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Tabel Data kelas User</h4>
+                        </div>
+                        <div class="card-body">
+                            <?= $this->session->flashdata('message'); ?>
+                            <a class="btn waves-effect waves-light btn-primary mb-3 mt-2 text-white" data-bs-toggle="modal" data-bs-target="#inlineForm"> <i class="fa fa-plus"></i> Add New Role</a>
+                            <table class="table table-striped" id="table1">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>kelas</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php $i =1;?>
+                                        <?php foreach ($kelas as $r) :?>
+                                            <tr>
+                                                <td><?= $i++; ?></td>
+                                                <td><?= $r['nama_kelas']; ?></td>
+                                                <td class="text-center">
+                                                <a class="btn waves-effect waves-light btn-warning text-white" href="<?= base_url('relasi/relasiAccess/' .$r['id_kelas']) ?>"> <i class="fa fa-pencil-alt"></i> Role Access</a>
+                                                <a class="btn waves-effect waves-light btn-danger text-white" href="<?= base_url('relasi/delete_role/' .$r['id_kelas']) ?>"> <i class="fa fa-trash"></i> Delete</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            </div>
 
-                                    <div class="modal-body">
-                                        <div class="text-center mt-2 mb-4">
-                                            <a href="index.html" class="text-success">
-                                                <span><img class="mr-2" src="<?= base_url(); ?>assets/images/logo1.png" alt="" height="50"></span>
-                                            </a>
-                                            <h5 class="mt-3">Tambah Data SubMenu</h5>
-                                        </div>
-
-                                        <form class="pl-3 pr-3" action="<?= base_url('tools/addsubmenu'); ?>" method="post">
-
-                                            <div class="form-group">
-                                                <label for="menuname">SubMenu Name</label>
-                                                <input class="form-control" type="text" id="title" name="title" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="menuname">SubMenu Name</label>
-                                                <select name="menu_id" id="menu_id" class="form-control chosen" required>
-                                                    <option value="">Select Menu</option>
-                                                    <?php foreach ($menu as $m) : ?>
-                                                        <option value="<?= $m['id'] ?>"><?= $m['menu'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="menuname">SubMenu URL</label>
-                                                <input class="form-control" type="text" id="url" name="url" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="menuname">SubMenu Icon</label>
-                                                <input class="form-control" type="text" id="icon" name="icon" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" required id="is_active" name="is_active" value="1" checked>
-                                                    <label class="custom-control-label" for="customCheck1">Is
-                                                        Active </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" required id="customCheck1">
-                                                        <label class="custom-control-label" for="customCheck1">I
-                                                            accept <a href="#">Terms and Conditions</a></label>
+            <!--Submenu Add form Modal -->
+            <div class="modal fade text-left" id="inlineForm" tabindex="-1"
+                role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                    role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h4 class="modal-title text-white" id="myModalLabel33">Edit Form Menu</h4>
+                            <button type="button" class="close" data-bs-dismiss="modal"
+                                aria-label="Close">X
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <form action="<?= base_url('User/addrole'); ?>" method="post">
+                            <div class="modal-body">
+                            <div class="form-group">
+                                                        <label for="menuname">Kelas Users</label>
+                                                        <input class="form-control" type="text" id="kelas" name="kelas" required>
                                                     </div>
-                                                </div>
-                                                <div class="form-group text-center">
-                                                    <button class="btn btn-primary" type="submit">Submit</button>
-                                                </div>
 
-                                        </form>
-
-                                    </div>
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
-                        <!-- Tambah modal content -->
-                        <!-- ============================================================== -->
-                        <!-- End Container fluid  -->
-                        <!-- ============================================================== -->
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" required
+                                                                id="customCheck1">
+                                                            <label class="custom-control-label" for="customCheck1">I
+                                                                accept <a href="#">Terms and Conditions</a></label>
+                                                        </div>
+                                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary"
+                                    data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Close</span>
+                                </button>
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+           

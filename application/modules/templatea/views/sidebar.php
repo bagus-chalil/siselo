@@ -37,17 +37,24 @@
                             $subMenu = $this->db->query($querySubMenu)->result_array();
                             ?>
                             <?php foreach ($subMenu as $sm) : ?>
-                        <a href="<?= base_url($sm['url']) ?>" class='sidebar-link'>
-                            <i class="<?= $sm['icon']; ?>"></i>
-                                <span><?= $sm['title'] ?></span>
-                            </a>
+                            <?php if($title == $sm['title']) :?>
+                                <li class="sidebar-item active">
+                            <?php else : ?>
+                                <li class="sidebar-item">
+                            <?php endif; ?>
+                                <a href="<?= base_url($sm['url']) ?>" class='sidebar-link'>
+                                <i class="<?= $sm['icon']; ?>"></i>
+                                    <span><?= $sm['title'] ?></span>
+                                </a>
+                            </li>
+                            
                             <?php endforeach ?>
                             <?php endforeach ?>
                         </li>
 
 
                         <li class="sidebar-title">Advance features</li>
-                        <li class="sidebar-item  ">
+                        <li class="sidebar-item">
                             <a href="<?= base_url('Login/logout') ?>" class='sidebar-link'>
                                 <i class="fas fa-fw fa-sign-out-alt"></i>
                                 <span>Logout</span>
