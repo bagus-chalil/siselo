@@ -82,5 +82,22 @@ class M_Mapel extends CI_Model
         $this->db->where('id_matpel',$this->input->post('id'));
         return $this->db->update('matpel',$data);
     }
-    
+	public function get_fullkelas(){
+		$this->db->select('kelas.*,COUNT(kelas_guru.guru_id) AS guru');
+		$this->db->from('kelas_guru');
+		$this->db->join('kelas', 'kelas_guru.kelas_id=kelas.id_kelas');
+		$this->db->join('guru', 'kelas_guru.guru_id=guru.id_guru');
+		$this->db->group_by('kelas_guru.kelas_id');
+		$query = $this->db->get();
+		return $query;
+	}
+	function get_product_by_package($id_kelas){
+		$this->db->select('*');
+		$this->db->from('guru');
+		$this->db->join('kelas_guru', 'kelas_guru.guru_id=guru.id_guru');
+		$this->db->join('kelas', 'kelas.id_kelas=kelas_guru.kelas_id');
+		$this->db->where('kelas.id_kelas',$id_kelas);
+		$query = $this->db->get();
+		return $query;
+	}
 }

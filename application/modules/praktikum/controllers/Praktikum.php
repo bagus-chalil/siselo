@@ -57,7 +57,7 @@ class Praktikum extends CI_Controller {
 	}
 	public function editAlat($id)
 	{
-		$data['title'] = 'Edit Alat Praktikum';
+		$data['title'] = 'Alat Praktikum';
 		$data['user'] = $this->db->get_where('user', ['email' =>
 		$this->session->userdata('email')])->row_array();
 		$data['data_alat']= $this->praktikum->get_detail_alat($id);

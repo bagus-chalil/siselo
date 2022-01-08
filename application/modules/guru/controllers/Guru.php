@@ -129,7 +129,7 @@ class Guru extends CI_Controller {
 				'nama_tugas'=>$this->input->post('tugas'),
 				'deskripsi_tugas'=>$this->input->post('deskripsi_tugas'),
 				'm_mapelId'=>$this->input->post('k_tugas'),
-				'tgl_tugas'=>time(),
+				'tgl_tugas'=>$this->input->post('tgl_tugas'),
 				'dokumen_tugas' => $new_document,
 				'tgs_active'=>$this->input->post('tgs_active')
 		);

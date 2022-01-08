@@ -44,6 +44,18 @@ function matpel_access($kelas_id, $matpel_id)
         return "checked='checked'";
     }
 }
+function guru_access($kelas_id, $guru_id)
+{
+    $ci = get_instance();
+
+    $ci->db->where('kelas_id', $kelas_id);
+    $ci->db->where('guru_id', $guru_id);
+    $result = $ci->db->get('kelas_guru');
+
+    if ($result->num_rows() > 0) {
+        return "checked='checked'";
+    }
+}
 if (!function_exists('tgl_indo')) {
     function tgl_indo($tanggal)
     {

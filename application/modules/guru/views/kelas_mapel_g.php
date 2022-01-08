@@ -112,7 +112,7 @@
             <form action="<?= base_url('Guru/add_tugas/') ?>" method="POST" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Kode Tugas:</label>
-                <input type="text" class="form-control" id="k_tugas" value="<?= $l['id_m_mapel']; ?>" name="k_tugas">
+                <input type="text" class="form-control" id="k_tugas" readonly value="<?= $l['id_m_mapel']; ?>" name="k_tugas">
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Nama Tugas:</label>
@@ -122,6 +122,17 @@
                 <label for="message-text" class="col-form-label">Deskripsi Tugas:</label>
                 <textarea class="form-control" name="d_tugas" required></textarea>
               </div>
+              <div class="form-group">
+                      <label>Tanggal Matapelajaran</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-calendar"></i>
+                          </div>
+                        </div>
+                        <input type="text" class="form-control datetimepicker" name="tgl_tugas">
+                      </div>
+                    </div>
               <div class="mb-3">
                 <label>Upload Dokumen</label>
                 <input name="dokumen_tugas" type="file" class="form-control"/>

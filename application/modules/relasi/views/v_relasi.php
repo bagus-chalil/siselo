@@ -26,17 +26,17 @@
                     <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Tabel Data kelas User</h4>
+                            <h4>Tabel Data Relasi - Kelas</h4>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
-                            <a class="btn waves-effect waves-light btn-primary mb-3 mt-2 text-white" data-bs-toggle="modal" data-bs-target="#inlineForm"> <i class="fa fa-plus"></i> Add New Role</a>
+                            <!-- <a class="btn waves-effect waves-light btn-primary mb-3 mt-2 text-white" data-bs-toggle="modal" data-bs-target="#inlineForm"> <i class="fa fa-plus"></i> Add New </a> -->
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>kelas</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

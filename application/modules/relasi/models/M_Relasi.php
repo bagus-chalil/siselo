@@ -35,7 +35,7 @@ class M_Relasi extends CI_Model
 		$this->db->select('*');
 		$this->db->from('matpel');
 		$this->db->join('kelas_Matpel', 'matpel_id=id_matpel');
-		$this->db->join('matpel', 'id_kelas=kelas_id');
+		$this->db->join('kelas', 'id_kelas=kelas_id');
 		$this->db->where('id_kelas',$id_kelas);
 		$query = $this->db->get();
 		return $query;

@@ -38,7 +38,7 @@ class Relasi extends CI_Controller {
 	}
 	public function relasiAccess($kelas_id)
 	{
-		$data['title'] = "Mata Pelajaran Access";
+		$data['title'] = "MataPelajaran-Kelas";
 		$data['user'] = $this->db->get_where('user', ['email' =>
 		$this->session->userdata('email')])->row_array();
 

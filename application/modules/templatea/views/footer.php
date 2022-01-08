@@ -70,6 +70,25 @@
 
         });
     </script>
+    <script>
+        $('.guru').on('click', function() {
+            const kelasId = $(this).data('kelas');
+            const guruId = $(this).data('guru');
+
+            $.ajax({
+                url: "<?= base_url('Mapel/changeAccess'); ?>",
+                type: 'post',
+                data: {
+                    kelasId: kelasId,
+                    guruId: guruId
+                },
+                success: function() {
+                    document.location.href = "<?= base_url('Mapel/relasiGuru/'); ?>" + kelasId;
+                }
+            })
+
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <script>

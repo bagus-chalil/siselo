@@ -80,7 +80,7 @@ class Menu extends CI_Controller
 	public function edit_Submenu($id)
     {
         $data['data_edit'] = $this->menu->getDataEditSubmenu($id)->row();
-        $data['title'] = 'Tabel Data';
+        $data['title'] = 'Submenu Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['menu']=$this->db->get('user_menu')->result_array();
 

@@ -49,15 +49,15 @@
                                                 </thead>
                                                 <tbody>
                                                 <?php $i =1;?>
-                                                <?php foreach ($mapel as $m) :?>
+                                                <?php foreach ($guru as $m) :?>
                                                     <tr>
                                                         <td><?= $i++; ?></td>
-                                                        <td><?= $m['nama_matpel']; ?></td>
+                                                        <td><?= $m['nama_guru']; ?></td>
                                                         <td class="text-center">
                                                             <div class="form-check">
-                                                                    <input class="form-check-input relasi" type="checkbox" 
-                                                                    <?= matpel_access($kelas['id_kelas'], $m['id_matpel']); ?>
-                                                                    data-kelas="<?= $kelas['id_kelas'];?>" data-matpel="<?= $m['id_matpel']; ?>">
+                                                                    <input class="form-check-input guru" type="checkbox" 
+                                                                    <?= guru_access($kelas['id_kelas'], $m['id_guru']); ?>
+                                                                    data-kelas="<?= $kelas['id_kelas'];?>" data-guru="<?= $m['id_guru']; ?>">
                                                                 </div>
                                                         </td>
                                                     </tr>

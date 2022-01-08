@@ -213,4 +213,55 @@ class Mapel extends CI_Controller {
 		role="alert">Matapelajaran Successful Edit !!!</div>');
         redirect(base_url('mapel/v_mapel'));
     }
+	public function view_kelas()
+	{
+		$data['title'] = "Data kelas";
+		$data['user'] = $this->db->get_where('user', ['email' =>
+		$this->session->userdata('email')])->row_array();
+
+		$data['kelas'] = $this->db->get('kelas')->result_array();
+		$data['package'] = $this->mapel->get_fullkelas()->result_array();
+
+		$this->load->view('templatea/header',$data);
+		$this->load->view('templatea/sidebar',$data);
+		$this->load->view('v_kelas',$data);
+		$this->load->view('templatea/footer');
+	}
+	public function relasiGuru($kelas_id)
+	{
+		$data['title'] = "Data kelas";
+		$data['user'] = $this->db->get_where('user', ['email' =>
+		$this->session->userdata('email')])->row_array();
+
+		$data['kelas'] = $this->db->get_where('kelas', ['id_kelas' => $kelas_id])->row_array();
+		
+		$data['guru'] = $this->db->get('guru')->result_array();
+
+		$this->load->view('templatea/header',$data);
+		$this->load->view('templatea/sidebar',$data);
+		$this->load->view('i_kelas');
+		$this->load->view('templatea/footer',$data);
+	}
+	public function changeAccess()
+	{
+		$kelas_id = $this->input->post('kelasId');
+		$guru_id = $this->input->post('guruId');
+
+		$data = [
+			'kelas_id' => $kelas_id,
+			'guru_id' => $guru_id
+		];
+		$result = $this->db->get_where('kelas_guru', $data);
+		if ($result->num_rows() < 1) {
+			$this->db->insert('kelas_guru', $data);
+		} else {
+			$this->db->delete('kelas_guru', $data);
+		}
+		$this->session->set_flashdata('message', '<div class="alert alert-primary"
+		role="alert">Access Kelas Change !!!</div>');
+	}
+	
 }	
+
+
+
