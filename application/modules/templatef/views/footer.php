@@ -6,7 +6,7 @@
                 echo "Copyright - Siselo &copy;" . $tahun;
                 ?>
                 <div class="bullet"></div> 
-                Design By <a href="https://dinus.ac.id/mahasiswa/A22.2019.02733">Mohammad Bagus Chalil A & </a><a href="">Muhammad Yusuf Faisal</a>
+                Design By <a href="https://dinus.ac.id/mahasiswa/A22.2019.02733">Mohammad Bagus Chalil A </a>
         </div>
         <div class="footer-right">
           

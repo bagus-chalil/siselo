@@ -11,8 +11,8 @@
           </div>
 
           <div class="section-body">
-            <h2 class="section-title">This is Example Page</h2>
-            <p class="section-lead">This page is just an example for you to create your own page.</p>
+            <h2 class="section-title">Kelas Online</h2>
+            <p class="section-lead">Silahkan pilih matapelajaran pada menu kelas online. !</p>
             <?php $i =1;?>
               <?php foreach ($mapelL as $l) :?>
             <div class="card">
@@ -21,16 +21,17 @@
               </div>
               <a href="<?= base_url('Kelas/v_kelas_id/'. $l['id_matpel']); ?>" style="display: inline-block; text-decoration: none;">
                 <div class="card-body" style="color: black;">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <p>Pada Matapelajaran ini terdapat beberapa kompetensi yang harus siswa penuhi seperti :
+                     <ul>
+                       <li>materi yang dipelajari</li>
+                       <li>tugas yang dikumpulkan</li>
+                       <li>Absensi Kelas</li>
+                     </ul>
+                  </p>
                   </div>
                 </a>
               <div class="card-footer bg-whitesmoke">
-                This is card footer
+                Semester Genap 2021-2022
               </div>
             </div>
             <?php endforeach; ?>

@@ -17,6 +17,16 @@ class M_profil extends CI_Model
         ";
         return $this->db->query($query)->row_array();
     }
+    public function getGuru(){
+        $nisn=$this->session->userdata('nisn');
+        $query = "SELECT `guru`.*
+                    FROM `user` 
+                    LEFT JOIN `guru`
+                    ON `user`.`wali_kelas` = `guru`.`id_guru`
+                    WHERE `user`.`nisn`=$nisn
+        ";
+        return $this->db->query($query)->row_array();
+    }
     public function Mdelete_role($id)
     {
         $this->db->where('id', $id);

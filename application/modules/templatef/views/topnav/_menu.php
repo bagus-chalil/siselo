@@ -21,7 +21,7 @@
 						<?=$user['nisn']?> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="<?=base_url('logout')?>">Logout</a></li>
+						<li><a href="<?=base_url('Login/logout')?>">Logout</a></li>
 					</ul>
 				</li>
 			</ul>

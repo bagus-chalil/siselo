@@ -41,6 +41,7 @@ class Kelas extends CI_Controller {
 		$this->session->userdata('email')])->row_array();
 		$data['mapelGuruL'] = $this->kelas->get_kelas_mapel($id_matpel);
 		$data['absensiSiswa'] = $this->kelas->getAbsenSiswa();
+		$data['mapels']= $this->db->get_where('matpel',['id_matpel' => $id_matpel])->row_array();
 
 		$this->load->view('templatef/kelas_online/header',$data);
 		$this->load->view('templatef/kelas_online/topbar',$data);

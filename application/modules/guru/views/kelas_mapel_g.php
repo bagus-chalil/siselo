@@ -123,7 +123,7 @@
                 <textarea class="form-control" name="d_tugas" required></textarea>
               </div>
               <div class="form-group">
-                      <label>Tanggal Matapelajaran</label>
+                      <label>Tanggal Tugas</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -164,7 +164,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Form Tambah Tugas</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle">Form Tambah Absensi</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -172,11 +172,11 @@
             <div class="modal-body">
             <form action="<?= base_url('Guru/add_absensi/') ?>" method="POST" enctype="multipart/form-data">
               <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Kode Tugas:</label>
+                <label for="recipient-name" class="col-form-label">Kode Absensi:</label>
                 <input type="text" class="form-control" id="k_absensi" value="<?= $l['id_m_mapel']; ?>" name="k_absensi">
               </div>
               <div class="form-group">
-                      <label>Date Range Picker</label>
+                      <label>Tanggal absensi</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">

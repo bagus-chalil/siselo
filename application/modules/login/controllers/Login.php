@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 	public function __construct(){
 	parent::__construct();
+	$this->load->model('M_Login','login');
 	$this->load->library('form_validation');
 	}
 
@@ -68,6 +69,13 @@ class Login extends CI_Controller {
 			redirect('Login');
 		}
 	}
+	public function awal(){
+		$this->load->view('landing_page');
+	} 
+	public function pengumuman(){
+		$data['pengumuman'] = $this->login->get_pengumuman();
+		$this->load->view('pengumuman',$data);
+	} 
 	public function logout(){
 		$this->session->unset_userdata('email');
 		$this->session->unset_userdata('role_id');

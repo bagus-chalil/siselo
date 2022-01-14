@@ -2,23 +2,24 @@
 <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Advanced Forms</h1>
+            <h1>Top Navigation</h1>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="<?= base_url('website');?>">Dashboard</a></div>
               <div class="breadcrumb-item"><?= $title ?></div>
+              <div class="breadcrumb-item">Edit Tugas</div>
             </div>
           </div>
 
           <div class="section-body">
-            <h2 class="section-title">Edit Forms</h2>
-            <p class="section-lead">We provide advanced input fields, such as date picker, color picker, and so on.</p>
+            <h2 class="section-title">Forms Edit Tugas</h2>
+            <p class="section-lead">Silahkan periksa kembali setiap kolom setelah melakukan perubahan.</p>
 
             <div class="row">
               <div class="col-12 col-md-6 col-lg-10">
                   <div class="card">
                     <div class="container">
                   <div class="card-header">
-                    <h4>Form Input</h4>
+                    <h4>Edit Tugas</h4>
                   </div>
                   <div class="card-body">
                   <?= $this->session->flashdata('message'); ?>
@@ -29,12 +30,24 @@
                       <input type="text" class="form-control" readonly name="k_tugas" value="<?= $tugas_e['m_mapelId']; ?>">
                     </div>
                     <div class="form-group">
-                      <label>Judul Materi</label>
+                      <label>Nama Tugas</label>
                       <input type="text" class="form-control" name="tugas" value="<?= $tugas_e['nama_tugas']; ?>" id="tugas">
                     </div>
                     <div class="form-group">
-                      <label>Deskripsi Mata Pelajaran</label>
+                      <label>Deskripsi Tugas</label>
                       <textarea class="form-control" name="deskripsi_tugas"><?= $tugas_e['deskripsi_tugas']; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Tanggal Tugas</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-calendar"></i>
+                          </div>
+                        </div>
+                        <?php $date = date_create($tugas_e['tgl_tugas']); ?>
+                        <input type="text" class="form-control datetimepicker" name="tgl_tugas" min="<?= date_format($date,'Y-m-d\TH:i') ?>" value="<?= date_format($date,'Y-m-d\TH:i') ?>">
+                      </div>
                     </div>
                     <a href="<?= base_url('Mapel/file/'.$tugas_e['dokumen_tugas']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $tugas_e['dokumen_tugas']; ?></a>
                     <div class="form-group">

@@ -58,7 +58,7 @@ class Guru extends CI_Controller {
 				'deskripsi_tugas'=>$this->input->post('d_tugas'),
 				'm_mapelId'=>$this->input->post('k_tugas'),
 				'dokumen_tugas'=>$gambar,
-				'tgl_tugas'=>time(),
+				'tgl_tugas'=>$this->input->post('tgl_tugas'),
 				'tgs_active'=>$this->input->post('tgs_active'),
 				
 			];
@@ -94,15 +94,15 @@ class Guru extends CI_Controller {
 			$this->load->view('e_mapel',$data);
 			$this->load->view('templatef/footer');
 				
-	}else {
-		$id_tugas = $this->input->post('id');
-		$config['upload_path']   = FCPATH. './assets/Dokumen/tugas/';
-			$config['allowed_types'] = 'pdf|docx';
-			$config['max_size']      = 15090;
-			$config['encrypt_name']  = False;
-		//   	$config['max_width']     = '1024';
-		//   	$config['max_height']    = '768';
-		$config['file_name']     = url_title($this->input->post('dokumen_tugas'));
+		}else {
+			$id_tugas = $this->input->post('id');
+			$config['upload_path']   = FCPATH. './assets/Dokumen/tugas/';
+				$config['allowed_types'] = 'pdf|docx';
+				$config['max_size']      = 15090;
+				$config['encrypt_name']  = False;
+			//   	$config['max_width']     = '1024';
+			//   	$config['max_height']    = '768';
+			$config['file_name']     = url_title($this->input->post('dokumen_tugas'));
 
 		$this->upload->initialize($config);
 		if (!$this->upload->do_upload('dokumen_tugas')) {
@@ -110,7 +110,7 @@ class Guru extends CI_Controller {
 					'nama_tugas'=>$this->input->post('tugas'),
 					'deskripsi_tugas'=>$this->input->post('deskripsi_tugas'),
 					'm_mapelId'=>$this->input->post('k_tugas'),
-					'tgl_tugas'=>time(),
+					'tgl_tugas'=>$this->input->post('tgl_tugas'),
 					'tgs_active'=>$this->input->post('tgs_active')
 			);
 			$this->db->where('id_tugas', $id_tugas);

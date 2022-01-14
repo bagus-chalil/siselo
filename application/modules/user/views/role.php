@@ -30,7 +30,6 @@
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
-                            <a class="btn waves-effect waves-light btn-primary mb-3 mt-2 text-white" data-bs-toggle="modal" data-bs-target="#inlineForm"> <i class="fa fa-plus"></i> Add New Role</a>
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>

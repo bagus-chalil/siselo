@@ -49,7 +49,7 @@
                             <label>Upload Dokumen Tugas</label>
                             <a href="<?= base_url('Kelas/file/'.$tugas_siswa['dokumen_hasil']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $tugas_siswa['dokumen_hasil']; ?></a>
                             <input name="dokumen" type="file" class="form-control"/>
-                            <input name="dokumen1" type="text" class="form-control" value="<?= $tugas_siswa['dokumen_hasil']?>"/>
+                            <input name="dokumen1" type="hidden" class="form-control" value="<?= $tugas_siswa['dokumen_hasil']?>"/>
                           </div>
                           <?php if( $terlambat > $now ) : ?>
                           <button class="btn btn-primary btn-block" type="submit">Submit</button>

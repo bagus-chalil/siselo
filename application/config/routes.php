@@ -53,6 +53,6 @@ $route['Blog/index'] = 'Blog/index';
 $route['Blog/(:any)'] = 'Blog/view/$1';
 $route['Blog'] = 'Blog';
 
-$route['default_controller'] = 'Login';
+$route['default_controller'] = 'Login/awal';
 $route['404_override'] = 'Templatef/blocked';
 $route['translate_uri_dashes'] = FALSE;

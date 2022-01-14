@@ -11,17 +11,15 @@ class M_Mapel extends CI_Model
     
 	public function get_mapel_id(){
 		$data=$this->session->userdata('nisn');
-		$query = "SELECT `user`.*,`user_role`.`id` as `id_level`,`user_role`.`role`,`kelas`.*,`guru`.*,`matpel`.* 
-					FROM `user` 
-					LEFT JOIN `user_role` 
-					on `user`.`role_id`=`user_role`.`id` 
+		$query = "SELECT `kelas`.*,`guru`.*,`matpel`.*,`kelas_guru`.* 
+					FROM `guru`  
+					LEFT JOIN `kelas_guru`
+					on `kelas_guru`.`guru_id`=`guru`.`id_guru`
 					LEFT JOIN `kelas` 
-					on `kelas`.`id_kelas`=`user`.`kelas_id` 
-					LEFT JOIN `guru`
-					on `guru`.`id_guru`=`user`.`wali_kelas`
+					on `kelas`.`id_kelas`=`kelas_guru`.`kelas_id` 
 					LEFT JOIN `matpel`
 					on `matpel`.`id_matpel`=`guru`.`matpel_id`
-					WHERE `guru`.`nip`=".$data
+					Where `guru`.`nip` = $data"
         ;
         return $this->db->query($query)->row_array();
 	}

@@ -107,7 +107,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <form action="<?= base_url('Profil/edit_foto/') ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('profil/edit_foto/') ?>" method="POST" enctype="multipart/form-data">
             <div class=text-center>
               <img alt="image" src="<?= base_url('assets/images/faces/'). $l['image']; ?>" width="35%" class="img-thumbnail" data-toggle="tooltip">
             </div>

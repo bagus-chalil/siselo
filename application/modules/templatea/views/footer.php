@@ -25,6 +25,18 @@
     <script src="<?= base_url(); ?>assets/vendors/simple-datatables/simple-datatables.js"></script>	
     <script type="text/javascript" src="<?= base_url('assets/js/bootstrap.bundle.js');?>"></script>
 
+    <!--Custom Text Area -->
+    <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
+    <script>
+        CKEDITOR.replace('deskripsi');
+        CKEDITOR.replace('deskripsi2');
+    </script>
+    <script src="<?= base_url(); ?>assets/vendors/tinymce/tinymce.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendors/tinymce/plugins/code/plugin.min.js"></script>
+    <script>
+        tinymce.init({ selector: '#default' });
+        tinymce.init({ selector: '#dark', toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code', plugins: 'code' });
+    </script>
 
     <script>
         // Simple Datatable

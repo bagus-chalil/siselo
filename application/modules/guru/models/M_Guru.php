@@ -5,15 +5,15 @@ class M_Guru extends CI_Model
 {
     public function get_kelas_guru(){
         $data= $this->session->userdata('nisn');
-		$query = "SELECT `user`.*,`kelas`.*,`guru`.*,`matpel`.* 
-					FROM `user`  
+		$query = "SELECT `kelas`.*,`guru`.*,`matpel`.*,`kelas_guru`.* 
+					FROM `guru`  
+					LEFT JOIN `kelas_guru`
+					on `kelas_guru`.`guru_id`=`guru`.`id_guru`
 					LEFT JOIN `kelas` 
-					on `kelas`.`id_kelas`=`user`.`kelas_id` 
-					LEFT JOIN `guru`
-					on `guru`.`nip`=`user`.`nisn`
+					on `kelas`.`id_kelas`=`kelas_guru`.`kelas_id` 
 					LEFT JOIN `matpel`
 					on `matpel`.`id_matpel`=`guru`.`matpel_id`
-					Where `user`.`nisn` = $data 
+					Where `guru`.`nip` = $data 
 				";
         return $this->db->query($query)->result_array();
 	}

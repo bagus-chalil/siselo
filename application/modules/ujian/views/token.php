@@ -1,6 +1,13 @@
 <div class="callout callout-info">
     <h4>Peraturan Ujian!</h4>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minus dolores accusantium fugiat debitis modi voluptates non consequuntur nemo expedita nihil laudantium commodi voluptatum voluptatem molestiae consectetur incidunt animi, qui exercitationem? Nisi illo, magnam perferendis commodi consequuntur impedit, et nihil excepturi quas iste cum sunt debitis odio beatae placeat nemo..</p>
+    <p>
+        1. Peserta Ujian harus bergabung kedalam grup whatsapp kelas yang dikelola oleh sekolah dan wajib melengkapi profil whatsapp dengan nama lengkap. Link ujian akan diinfokan hanya melalui grup whatsapp tersebut tepat sesuai jadwal. Dan mintalah TOKEN Ujian kepada Pengawas Ujian setelah Peserta Ujian mengisi biodata pada form Ujian Sekolah. <br>
+        2. Peserta harus membuka link ujian menggunakan browser google chrome. Setiap peserta ujian hanya dapat mengerjakan soal 1 kali, dan tidak ada pengerjaan ulang atau perbaikan. <br>
+        3. Ujian Sekolahkan diselenggarakan secara Daring , dengan model pertanyaan pilihan jamak. <br>
+        4. Waktu ujian adalah 2 jam (120 menit). <br>
+        5. Peserta ujian harus membaca dengan teliti instruksi yang ada didalam form soal. Pastikan semua sudah terbuka semua sebelum Anda memulai mengerjakan. <br>
+        6. Peserta Ujian harus menjunjung tinggi integritas dan kejujuran dalam mengikuti Ujian Sekolah. <br>
+    </p>
 </div>
 <div class="box box-primary">
     <div class="box-header with-border">

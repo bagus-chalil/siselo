@@ -56,6 +56,9 @@
             <div class="mt-5 text-muted text-center">
               Don't have an account? <a href="<?= base_url("Register"); ?>">Create One</a>
             </div>
+            <div class="mt-2 text-muted text-center">
+              Back to home ? <a href="<?= base_url("Login/awal"); ?>">Link Now</a>
+            </div>
             <div class="simple-footer">
             <?php
                 $tanggal = time () ;
