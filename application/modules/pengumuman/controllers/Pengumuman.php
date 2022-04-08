@@ -52,7 +52,7 @@ class Pengumuman extends CI_Controller
 			$this->db->insert('pengumuman',$data);
 			$this->session->set_flashdata('message','<div class="alert alert-primary"
 			role="alert">Pengumuman baru berhasil ditambahkan !!!</div>');
-			redirect('Pengumuman');
+			redirect('pengumuman');
 		}
 	}
 	public function file(){
@@ -76,7 +76,7 @@ class Pengumuman extends CI_Controller
 	public function editPengumuman(){
 		$this->form_validation->set_rules('judul', 'JUDUL', 'trim|required');
 		if ($this->form_validation->run() == FALSE) {
-			redirect('Pengumuman');	
+			redirect('pengumuman');	
 		}else {
 			$id_pengumuman = $this->input->post('id_pengumuman');
 			$config['upload_path']   = FCPATH. './assets/Dokumen/pengumuman/';
@@ -94,14 +94,14 @@ class Pengumuman extends CI_Controller
 					'judul'=>$this->input->post('judul'),
 					'deskripsi'=>$this->input->post('isi'),
 					'tgl_pengumuman'=>$this->input->post('tgl_pengumuman'),
-					'status_pengumuman'=>1
+					'status_pengumuman'=>$this->input->post('is_active')
 				);
 				$this->db->where('id_pengumuman', $id_pengumuman);
 				$this->db->update('pengumuman', $data);
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-			Pengumuman berhasil diubah !
+			Pengumuman telah berhasil diubah !
 			</div>');
-				redirect('Pengumuman');
+				redirect('pengumuman');
 			} else {
 				$old_image = $this->input->post('dokumen1');
 				if ($old_image != 'NULL') {
@@ -114,14 +114,14 @@ class Pengumuman extends CI_Controller
 					'deskripsi'=>$this->input->post('isi'),
 					'tgl_pengumuman'=>$this->input->post('tgl_pengumuman'),
 					'dokumen' => $new_image,
-					'status_pengumuman'=>1
+					'status_pengumuman'=>$this->input->post('is_active')
 				);
 				$this->db->where('id_pengumuman', $id_pengumuman);
 				$this->db->update('pengumuman', $data);
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-				Pengumuman berhasil diubah!
+				Pengumuman telah berhasil diubah!
 			</div>');
-				redirect('Pengumuman');
+				redirect('pengumuman');
 			}
 		}
 	}
@@ -129,7 +129,7 @@ class Pengumuman extends CI_Controller
     {
         $delete = $this->pengumuman->Mdelete_pengumuman($id_pengumuman);
         $this->session->set_flashdata('message','<div class="alert alert-danger"
-		role="alert">Delete Pengumuman Success !!!</div>');
-		redirect('Pengumuman');
+		role="alert">Pengumuman telah berhasil dihapus !!!</div>');
+		redirect('pengumuman');
     }	
 }

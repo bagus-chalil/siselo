@@ -4,8 +4,8 @@
           <div class="section-header">
             <h1>Top Navigation</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="<?= base_url('Kelas'); ?>">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="<?= base_url('Kelas'); ?>">Halaman Belajar</a></div>
+              <div class="breadcrumb-item active"><a href="<?= base_url('kelas'); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="<?= base_url('kelas'); ?>">Halaman Belajar</a></div>
               <div class="breadcrumb-item"><?= $title?></div>
             </div>
           </div>
@@ -19,7 +19,7 @@
               <div class="card-header">
                 <h4><?= $l['nama_matpel']; ?></h4>
               </div>
-              <a href="<?= base_url('Kelas/v_kelas_id/'. $l['id_matpel']); ?>" style="display: inline-block; text-decoration: none;">
+              <a href="<?= base_url('kelas/v_kelas_id/'. $l['id_matpel']); ?>" style="display: inline-block; text-decoration: none;">
                 <div class="card-body" style="color: black;">
                   <p>Pada Matapelajaran ini terdapat beberapa kompetensi yang harus siswa penuhi seperti :
                      <ul>
@@ -28,6 +28,9 @@
                        <li>Absensi Kelas</li>
                      </ul>
                   </p>
+                  <div class="ml-0">
+                    <a class="btn btn-primary" href="<?= base_url('kelas/v_kelas_id/'. $l['id_matpel']); ?>" role="button">Lihat Selengkapnya</a>
+                  </div>
                   </div>
                 </a>
               <div class="card-footer bg-whitesmoke">

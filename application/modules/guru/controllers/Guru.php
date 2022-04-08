@@ -65,8 +65,21 @@ class Guru extends CI_Controller {
 			$this->db->insert('tugas',$data);
 			$this->session->set_flashdata('message','<div class="alert alert-primary"
 			role="alert">New tugas Added !!!</div>');
-			redirect('Guru');
+			redirect('guru');
 		}
+	}
+	public function update_nilai(){
+		$id=$this->input->post('id');
+		$url=$this->input->post('id_mapel');
+		$data = array(
+			'nilai'=>$this->input->post('nilai')
+		);
+		$this->db->where('id', $id);
+		$this->db->update('tugas_siswa', $data);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+		Nilai!
+		</div>');
+		redirect('guru/v_mapel/'.$url);
 	}
 	public function edit_tugas($id_tugas)
 	{
@@ -118,7 +131,7 @@ class Guru extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 		Tugas has been Update!
 		</div>');
-			redirect('Guru');
+			redirect('guru');
 		} else {
 			$old_document = $this->input->post('dokumen_tugas1');
 			if ($old_document != 'NULL') {
@@ -138,7 +151,7 @@ class Guru extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 		Tugas has been Update!
 		</div>');
-			redirect('Guru');
+			redirect('guru');
 			}
 		}
 	}
@@ -147,7 +160,7 @@ class Guru extends CI_Controller {
 		$this->session->set_flashdata('message','<div class="alert alert-danger"
 		role="alert">Tugas has been deleted !!!</div>');
 		
-		redirect('Guru');
+		redirect('guru');
 	}
 	public function add_absensi(){
 			$data=[
@@ -158,14 +171,14 @@ class Guru extends CI_Controller {
 			$this->db->insert('absensi',$data);
 			$this->session->set_flashdata('message','<div class="alert alert-primary"
 			role="alert">New absensi Added !!!</div>');
-			redirect('Guru');
+			redirect('guru');
 		}
 	public function hapus_absensi($id_absen){
 		$this->db->where('id_absen', $id_absen);
         $this->db->delete('absensi');
 		$this->session->set_flashdata('message','<div class="alert alert-danger"
 		role="alert">Absensi has been deleted !!!</div>');
-		redirect('Guru');
+		redirect('guru');
 	}
 	public function edit_absensi($id_absen){
 		$data = array (
@@ -177,7 +190,7 @@ class Guru extends CI_Controller {
 		$this->db->update('absensi', $data);
         $this->session->set_flashdata('message','<div class="alert alert-success"
 		role="alert">Edit Absen Success !!!</div>');
-		redirect('Guru');
+		redirect('guru');
     }
 	public function v_mapel($id)
 	{

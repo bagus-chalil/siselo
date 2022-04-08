@@ -19,7 +19,8 @@ class Profil extends CI_Controller {
 		$data['matpel']=$this->db->get('matpel')->result_array();
 		$data['kelas'] = $this->db->get('kelas')->result_array();
 		$data['users'] = $this->db->get('user')->result_array();
-
+		$this->db->where('id !=', 1);
+		$data['role'] = $this->db->get('user_role')->result_array();
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
 		$this->form_validation->set_rules('nisn', 'NISN', 'required|trim|min_length[8]');
 		$this->form_validation->set_rules('telephone', 'Telephone', 'required|trim|min_length[8]');

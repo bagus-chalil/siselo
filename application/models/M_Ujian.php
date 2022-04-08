@@ -127,6 +127,11 @@ class M_Ujian extends CI_Model
         $this->db->where('ujian_id', $id);
         return $this->db->get('h_ujian')->row();
     }
+    public function bandingNilaiMin($id)
+    {
+        $query ="SELECT min(nilai) AS min_nilai FROM h_ujian where ujian_id=$id";
+        return $this->db->query($query)->row();
+    }
 
 
 }

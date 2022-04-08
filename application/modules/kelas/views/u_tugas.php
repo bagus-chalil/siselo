@@ -4,9 +4,9 @@
           <div class="section-header">
             <h1>Top Navigation</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="<?= base_url('Kelas'); ?>">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="<?= base_url('Kelas'); ?>">Halaman Belajar</a></div>
-                <div class="breadcrumb-item"><a href="<?= base_url('Kelas/v_kelas_online/').$user['nisn']; ?>">Kelas Online</a></div>
+              <div class="breadcrumb-item active"><a href="<?= base_url('kelas'); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="<?= base_url('kelas'); ?>">Halaman Belajar</a></div>
+                <div class="breadcrumb-item"><a href="<?= base_url('kelas/v_kelas_online/').$user['nisn']; ?>">Kelas Online</a></div>
                 <div class="breadcrumb-item">Upload Tugas</div>
             </div>
           </div>
@@ -24,7 +24,7 @@
                         <h4>Form Input Tugas</h4>
                       </div>
                       <div class="card-body">
-                          <form action="<?= base_url('Kelas/addTugas') ?>" method="POST" enctype="multipart/form-data">
+                          <form action="<?= base_url('kelas/addTugas') ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                           <label>Kode Mata Pelajaran</label>
                           <input type="text" class="form-control" readonly name="kode" value="<?= $v_tugas['id_m_mapel']?>" >
@@ -71,7 +71,7 @@
                             <b>Kelas :</b> <?= $v_tugas['nama_kelas']?><br>
                             <b>Deskripsi Tugas :</b> <?= $v_tugas['deskripsi_tugas']?><br>
                             <b>Dokumen tugas* :</b><br> 
-                            <a href="<?= base_url('Kelas/file/'.$v_tugas['dokumen_tugas']); ?>"><i class="fas fa-fw fa-file-pdf"></i><?= $v_tugas['dokumen_tugas']; ?></a><br>
+                            <a href="<?= base_url('kelas/file/'.$v_tugas['dokumen_tugas']); ?>"><i class="fas fa-fw fa-file-pdf"></i><?= $v_tugas['dokumen_tugas']; ?></a><br>
                         </p>
                         <h6>* Hanya Bersifat Opsional !</h6>
                       </div>

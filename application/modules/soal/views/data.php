@@ -41,7 +41,7 @@
 				</th>
                 <th width="25">No.</th>
 				<th>Guru</th>
-                <th>Mata Kuliah</th>
+                <th>Matapelajaran</th>
 				<th>Soal</th>
 				<th>Tgl Dibuat</th>
 				<th class="text-center">Aksi</th>
@@ -53,8 +53,8 @@
 					<input type="checkbox" class="select_all">
 				</th>
                 <th width="25">No.</th>
-				<th>Dosen</th>
-                <th>Mata Kuliah</th>
+				<th>Guru</th>
+                <th>Matapelajaran</th>
 				<th>Soal</th>
 				<th>Tgl Dibuat</th>
 				<th class="text-center">Aksi</th>

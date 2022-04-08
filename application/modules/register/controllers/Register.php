@@ -11,7 +11,8 @@ class Register extends CI_Controller {
 	{
 		
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
-		$this->form_validation->set_rules('nisn', 'NISN', 'required|trim|min_length[8]');
+		$this->form_validation->set_rules('nisn', 'NISN', 'required|trim|min_length[11]');
+		$this->form_validation->set_rules('telephone', 'Telephone', 'required|trim|min_length[11]');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]',[
 			'is_unique' => 'Email has already use !'
 		]);
@@ -32,8 +33,9 @@ class Register extends CI_Controller {
 		}else{
 			$data = [
 				'name' => htmlspecialchars($this->input->post('name', true)),
-				'nisn' => htmlspecialchars($this->input->post('nisn', true)),
+				'telephone' => htmlspecialchars($this->input->post('telephone', true)),
 				'email' => htmlspecialchars($this->input->post('email', true)),
+				'nisn' => htmlspecialchars($this->input->post('nisn', true)),
 				'image' => 'default.jpg',
 				'password' => password_hash($this->input->post('password'),PASSWORD_DEFAULT),
 				'role_id' => 3,

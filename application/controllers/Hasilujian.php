@@ -57,13 +57,15 @@ class HasilUjian extends CI_Controller {
 		$this->session->userdata('email')])->row_array();
 		$ujian = $this->ujian->getUjianById($id);
 		$nilai = $this->ujian->bandingNilai($id);
+		$nilai1 = $this->ujian->bandingNilaiMin($id);
 			
 		$data = [
 			'user' => $data['user'],
 			'title'	=> 'Ujian',
 			'subjudul'=> 'Detail Hasil Ujian',
 			'ujian'	=> $ujian,
-			'nilai'	=> $nilai
+			'nilai'	=> $nilai,
+			'nilai1'	=> $nilai1
 		];
 
 

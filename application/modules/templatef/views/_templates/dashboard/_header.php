@@ -93,7 +93,7 @@
 								<!-- Menu Body -->
 								<li class="user-footer">
 									<div class="pull-right">
-										<a href="<?= base_url('Login/logout') ?>" class="btn btn-default btn-flat">Logout</a>
+										<a href="<?= base_url('login/logout') ?>" class="btn btn-default btn-flat">Logout</a>
 									</div>
 								</li>
 							</ul>

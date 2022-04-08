@@ -102,7 +102,7 @@ class User extends CI_Controller {
 		$this->user->ubah_userLevel1($data1);
 		$this->session->set_flashdata('message','<div class="alert alert-success"
 		role="alert">SubMenu Successful Edit !!!</div>');
-        redirect('User/view_user');
+        redirect('user/view_user');
     }
 	public function edit_roleLevel()
     {
@@ -118,6 +118,6 @@ class User extends CI_Controller {
         $this->user->ubah_userLevel($data);
 		$this->session->set_flashdata('message','<div class="alert alert-success"
 		role="alert">SubMenu Successful Edit !!!</div>');
-        redirect('User/view_user');
+        redirect('user/view_user');
     }
 }

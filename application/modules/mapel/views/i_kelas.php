@@ -28,14 +28,14 @@
                         <div class="col-12 col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Tabel Access User</h4>
+                                    <h4 class="card-title">Tabel Data Guru</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
                                         <?= $this->session->flashdata('message'); ?>
                                     <h4 class="card-title mt-2 mb-2">Kelas : <?= $kelas['nama_kelas'] ?></h4>
-                                    <h6 class="card-subtitle mt-2">Untuk mengubah matapelajaran silahkan beri
-                                        <code> checklist</code> pada matapelajaran yang diinginkan.
+                                    <h6 class="card-subtitle mt-2">Untuk mengubah posisi kelas silahkan beri
+                                        <code> checklist</code> pada nama guru yang diinginkan.
                                     </h6>
                                         <!-- Table with outer spacing -->
                                         <div class="table-responsive">

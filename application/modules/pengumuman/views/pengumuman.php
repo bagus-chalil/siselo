@@ -39,7 +39,7 @@
                                         <th>Deskripsi</th>
                                         <th>Dokumen</th>
                                         <th>Tanggal</th>
-                                        <th>Active</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -52,7 +52,16 @@
                                             <td><?= $pm['deskripsi']; ?></td>
                                             <td><?= $pm['dokumen']; ?></td>
                                             <td><?= format_indo($pm['tgl_pengumuman'])."|".waktu_indo($pm['tgl_pengumuman']);?>WIB</td>
-                                            <td><?= $pm['status_pengumuman']; ?></td>
+                                            <td>
+                                            <?php if ($pm['status_pengumuman'] == 0) { ?>
+                                            <span class="badge rounded-pill bg-warning text-white">Tidak aktif</span>
+                                            <?php } else if ($pm['status_pengumuman'] == 1 ){ ?>
+                                                <span class="badge rounded-pill bg-success text-white">Aktif</span>
+                                            <?php }else { ?>
+                                            <?= $pm['status_pengumuman']; ?>
+                                                <span class="badge rounded-pill bg-danger text-dark">Tidak ditemukan</span>
+                                            <?php } ?>
+                                            </td>
                                             <td class="text-center">
                                                 <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url('pengumuman/data_edit/' . $pm['id_pengumuman']) ?>"> <i class="fa fa-pencil-alt"></i> Edit</a>
                                                 <a class="btn waves-effect waves-light btn-danger text-white" href="<?= base_url('pengumuman/deletePengumuman/' . $pm['id_pengumuman']) ?>"> <i class="fa fa-trash"></i> Delete</a>
@@ -74,7 +83,7 @@
                     role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white" id="myModalLabel33">Edit Form Pengumuman</h4>
+                            <h4 class="modal-title text-white" id="myModalLabel33">Form Tambah Pengumuman</h4>
                             <button type="button" class="close" data-bs-dismiss="modal"
                                 aria-label="Close">X
                                 <i data-feather="x"></i>

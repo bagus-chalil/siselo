@@ -16,7 +16,7 @@
                 $tahun= date("Y",$tanggal);
                 echo "Copyright - Siselo &copy;" . $tahun;
                 ?>
-                Design By <a href="https://dinus.ac.id/mahasiswa/A22.2019.02733">Mohammad Bagus Chalil A & </a><a href="">Muhammad Yusuf Faisal</a></p>
+                Design By <a href="https://dinus.ac.id/mahasiswa/A22.2019.02733">Mohammad Bagus Chalil A </a></p>
         </div>
 			</footer>
 

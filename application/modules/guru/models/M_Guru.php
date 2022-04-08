@@ -49,7 +49,7 @@ class M_Guru extends CI_Model
         LEFT JOIN `kelas`
         ON `kelas`.`id_kelas`=`m_mapel`.`kelas_id`
 		WHERE `user`.`role_id`=3 and `m_mapel`.`id_m_mapel`='$id'
-        order by `user`.`nisn`";
+        order by `user`.`nisn` DESC";
         return $this->db->query($query)->result_array();
 	}
 	public function get_detail_mapel_absen(){

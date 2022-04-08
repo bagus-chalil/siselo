@@ -51,12 +51,9 @@
                                                 <td><?= $s['email']; ?></td>
                                                 <td><?= $s['role']; ?></td>
                                                 <td class="text-center">
-                                                <?php if ($s['role_id'] == 3) { ?>
+                                                <?php if ($s['role_id'] == 3 or $s['role_id'] == 4 ) { ?>
                                                     <a class="btn waves-effect waves-light btn-primary text-white" data-bs-toggle="modal" data-bs-target="#inlineForm1<?php echo $s['id']; ?>"> <i class="fa fa-pencil-alt"></i> Access Level</a>
-                                                <?php }else if ($s['role_id'] == 1) { ?>
-                                                <?php }else if ($s['role_id'] == 2) { ?>
                                                 <?php }else { ?>
-                                                <?= ($s['role_id']!=3); ?>
                                                     
                                                 <?php } ?>
                                                 <a class="btn waves-effect waves-light btn-success text-white" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $s['id']; ?>"> <i class="fa fa-pencil-alt"></i> Edit</a>
@@ -113,7 +110,6 @@
                                                                                 <?php endforeach; ?>
                                                                                 </select>
                                                                         <?php }else { ?>
-                                                                        <?= ($s['role_id']!=3); ?>
                                                                     <?php } ?>
                                                                     <label for="menuname">Kelas</label>
                                                                     <select name="kelas" id="kelas" class="form-control" required>

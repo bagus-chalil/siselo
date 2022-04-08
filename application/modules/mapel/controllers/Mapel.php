@@ -7,7 +7,7 @@ class Mapel extends CI_Controller {
 		parent::__construct();
 		$this->load->model('M_Mapel','mapel');
 		if ( $this->session->userdata['role_id'] != 2 and $this->session->userdata['role_id'] != 1 ){
-			redirect('Templatef/blocked');
+			redirect('templatef/blocked');
 		}
 		
 	}
@@ -49,7 +49,7 @@ class Mapel extends CI_Controller {
 		public function addmapel(){
 		
 				$config['upload_path']   = FCPATH. './assets/Dokumen/';
-				$config['allowed_types'] = 'pdf';
+				$config['allowed_types'] = 'pdf|docx|doc|xlsx';
 				$config['max_size']      = 15090;
 				$config['encrypt_name']  = False;
 				$this->load->library('upload',$config);
@@ -78,7 +78,7 @@ class Mapel extends CI_Controller {
 					$this->db->insert('m_mapel',$data);
 					$this->session->set_flashdata('message','<div class="alert alert-primary"
 					role="alert">Data Matapelajaran baru berhasil ditambahkan !!!</div>');
-					redirect('Mapel');
+					redirect('mapel');
 				}
 			}
 		public function file(){
@@ -123,7 +123,7 @@ class Mapel extends CI_Controller {
 		}else {
 			$id_m_mapel = $this->input->post('kode');
 			$config['upload_path']   = FCPATH. './assets/Dokumen/';
-				$config['allowed_types'] = 'pdf';
+				$config['allowed_types'] = 'pdf|docx|doc|xlsx';
 				$config['max_size']      = 15090;
 				$config['encrypt_name']  = False;
 			//   	$config['max_width']     = '1024';
@@ -147,7 +147,7 @@ class Mapel extends CI_Controller {
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			 Data Matapelajaran berhasil ditambahkan !
 			</div>');
-				redirect('Mapel');
+				redirect('mapel');
 			} else {
 				$old_image = $this->input->post('dokumen1');
 				if ($old_image != 'NULL') {
@@ -170,7 +170,7 @@ class Mapel extends CI_Controller {
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 			Data MataPelajaran berhasil ditambahkan!
 			</div>');
-				redirect('Mapel');
+				redirect('mapel');
 			}
 		}
 	}

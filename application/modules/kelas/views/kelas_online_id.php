@@ -4,9 +4,9 @@
           <div class="section-header">
             <h1>Top Navigation</h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="<?= base_url('Kelas'); ?>">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="<?= base_url('Kelas'); ?>">Halaman Belajar</a></div>
-                <div class="breadcrumb-item"><a href="<?= base_url('Kelas/v_kelas_online/').$user['nisn']; ?>">Kelas Online</a></div>
+              <div class="breadcrumb-item active"><a href="<?= base_url('kelas'); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="<?= base_url('kelas'); ?>">Halaman Belajar</a></div>
+                <div class="breadcrumb-item"><a href="<?= base_url('kelas/v_kelas_online/').$user['nisn']; ?>">Kelas Online</a></div>
                 <div class="breadcrumb-item"><?= $mapels['nama_matpel'] ?></div>
             </div>
           </div>
@@ -31,7 +31,9 @@
                       <tbody>
                         <tr>
                           <td>
-                          <a href="<?= base_url('Kelas/file/'.$l['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $l['dokumen']; ?></a><br>
+                          <a href="<?= base_url('kelas/file/'.$l['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $l['dokumen']; ?></a><br>
+                          <!-- <object data="<?= base_url('assets/Dokumen/'.$l['dokumen']); ?>" type="application/pdf" width="100%" height="500px"></object>
+                            <a src="<?= base_url('kelas/file/'.$l['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $l['dokumen']; ?></a><br> -->
                           </td>
                         </tr>
                         <!-- Tugas -->
@@ -55,7 +57,7 @@
                         <tr>
                           <?php if ($l['id_m_mapel'] == $sm['m_mapelId']) { ?>
                             <td>
-                              <a href="<?= base_url('Kelas/v_tugas/'.$sm['id_tugas']) ?>" class="mt-5"> <i class="fas fa-fw fa-file-upload"></i> Tugas- <?= $sm['nama_tugas'] ; ?></a>   
+                              <a href="<?= base_url('kelas/v_tugas/'.$sm['id_tugas']) ?>" class="mt-5"> <i class="fas fa-fw fa-file-upload"></i> Tugas- <?= $sm['nama_tugas'] ; ?></a>   
                             </td>
                             <?php foreach ($subTugas as $t) :?>
                               <?php if ($sm['id_tugas']==$t['tugas_id'] and $user['nisn']==$t['nisn']) { ?>
@@ -91,10 +93,10 @@
                             </td>
                           <?php }else { ?>
                             <td>
-                                <a href="" class="mt-5"> <i class="fas fa-fw fa-cloud"></i> Absensi - <?= format_indo($ms['tgl_absen']); ?></a>   
+                                <a href="" readonly style="text-decoration: none;" class="mt-5"> <i class="fas fa-fw fa-cloud"></i> Absensi - <?= format_indo($ms['tgl_absen']); ?></a>   
                             </td>        
                             <td class="float-right">
-                              <form action="<?= base_url('Kelas/absen_siswa/') ?>" method="POST">
+                              <form action="<?= base_url('kelas/absen_siswa/') ?>" method="POST">
                                 <input type="hidden" class="form-control" id="k_tugas" name="nisn" value="<?= $user['nisn']; ?>">
                                 <input type="hidden" class="form-control" id="n_tugas" name="id_absen" value="<?= $ms['id_absen']; ?>">
                                 <input type="hidden" class="form-control" id="n_tugas" name="status" value="1">
@@ -113,45 +115,3 @@
           </div>
         </section>
       </div>
-
-      <!-- Absensi -->
-      <!-- <?php
-            $mapelIds = $l['id_m_mapel'];
-            $snisn = $user['nisn'];
-            $querySubMapels = "SELECT `absensi`.*,`absensi_siswa`.*
-                                FROM `absensi`
-                                LEFT JOIN `absensi_siswa`
-                                on `absensi`.`id_absen`=`absensi_siswa`.`absen_id`
-                                WHERE `absensi_active`=1 
-                                AND `m_mapel_id` = '$mapelIds'";
-            $subMapels= $this->db->query($querySubMapels)->result_array();
-            
-            ?>
-            <?php foreach ($subMapels as $ms) :?>
-            <tr>
-            <?php if ($user['nisn'] == $ms['nisn'] and $l['id_m_mapel'] == $ms['m_mapel_id'] ) { ?>
-              <?php if ( $ms['status'] == 1 ) { ?>
-                <td>
-                    <a href="" class="mt-5"> <i class="fas fa-fw fa-cloud"></i> Absensi - <?= format_indo($ms['tgl_absen']); ?></a>   
-                </td>
-                <td class="float-right">
-                  <h5 class="text-primary "><i class="fas fa-fw fa-check-square fa-7x"></i></h5>
-                </td>
-                <?php }else { ?>     
-                <?php } ?>
-              <?php }else { ?>
-                <td>
-                    <a href="" class="mt-5"> <i class="fas fa-fw fa-cloud"></i> Absensi - <?= format_indo($ms['tgl_absen']); ?></a>   
-                </td>        
-                <td class="float-right">
-                  <form action="<?= base_url('Kelas/absen_siswa/') ?>" method="POST">
-                    <input type="hidden" class="form-control" id="k_tugas" name="nisn" value="<?= $user['nisn']; ?>">
-                    <input type="hidden" class="form-control" id="n_tugas" name="id_absen" value="<?= $ms['id_absen']; ?>">
-                    <input type="hidden" class="form-control" id="n_tugas" name="status" value="1">
-                    <input type="hidden" class="form-control" id="n_tugas" name="kelas_id" value="<?= $l['id_matpel']?>">
-                    <button type="submit" class="btn btn-primary"> <i class="fas fa-check-square"></i> Absen</button>
-                  </form>
-                </td>
-              <?php } ?>
-            </tr>          
-            <?php endforeach; ?> -->

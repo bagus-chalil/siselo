@@ -22,7 +22,7 @@
                   </div>
                   <div class="card-body">
                   <?= $this->session->flashdata('message'); ?>
-                      <form action="<?= base_url('Mapel/edit_data_mapel/'.$editGuruL['id']); ?>" method="POST" enctype="multipart/form-data">
+                      <form action="<?= base_url('mapel/edit_data_mapel/'.$editGuruL['id']); ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                       <label>Kode Mata Pelajaran</label>
                       <input type="hidden" class="form-control" readonly name="id" value="<?= $editGuruL['id']; ?>">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group">
                     <label>Dokumen Lama</label><br>
-                    <a href="<?= base_url('Mapel/file/'.$editGuruL['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $editGuruL['dokumen']; ?></a>
+                    <a href="<?= base_url('mapel/file/'.$editGuruL['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $editGuruL['dokumen']; ?></a>
                     </div>
                     <div class="form-group">
                         <label>Upload Dokumen</label>

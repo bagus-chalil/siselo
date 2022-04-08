@@ -26,7 +26,7 @@
                     <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Tabel Data Menu</h4>
+                            <h4>Tabel Data Alat praktikum</h4>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
@@ -35,7 +35,7 @@
                                 <thead>
                                     <tr>
                                     <th>#</th>
-                                        <th>nama_alat</th>
+                                        <th>Nama alat</th>
                                         <th>Mata Pelajaran</th>
                                         <th>Kelas</th>
                                         <th class="text-center">Gambar</th>
@@ -74,7 +74,7 @@
                     role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white" id="myModalLabel33">Edit Form Alat Praktikum</h4>
+                            <h4 class="modal-title text-white" id="myModalLabel33">Form Tambah Alat Praktikum</h4>
                             <button type="button" class="close" data-bs-dismiss="modal"
                                 aria-label="Close">X
                                 <i data-feather="x"></i>

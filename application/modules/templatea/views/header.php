@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/modules/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/simple-datatables/style.css">
 
+    <link href="<?= base_url(); ?>assets/vendor/chartist/dist/chartist.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-select.css');?>">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vendors/bootstrap-icons/bootstrap-icons.css">

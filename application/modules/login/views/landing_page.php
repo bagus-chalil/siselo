@@ -46,7 +46,7 @@
           <li class="active"><a href="#hero">Beranda</a></li>
           <li><a href="#mahasiswa">Siswa</a></li>
           <li><a href="#dosen">Guru</a></li>
-          <li><a href="<?= base_url('Login/pengumuman') ?>">Pengumuman</a></li>
+          <li><a href="<?= base_url('login/pengumuman') ?>">Pengumuman</a></li>
 
 
         </ul>
@@ -54,7 +54,7 @@
       </nav><!-- .nav-menu -->
 
       <!-- <a href="index.html" class="get-started-btn">Get Started</a> -->
-      <a href="<?= base_url('Login') ?>" class="login-btn ml-auto">Login</a>
+      <a href="<?= base_url('login') ?>" class="login-btn ml-auto">Login</a>
 
     </div>
   </header><!-- End Header -->

@@ -34,7 +34,7 @@ class Relasi extends CI_Controller {
 		$delete = $this->relasi->Mdelete_kelas($id_kelas);
 		$this->session->set_flashdata('message', '<div class="alert alert-danger"
 		role="alert">Delete Role Success !!!</div>');
-		redirect('User');
+		redirect('user');
 	}
 	public function relasiAccess($kelas_id)
 	{

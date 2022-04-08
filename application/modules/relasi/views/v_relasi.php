@@ -26,7 +26,7 @@
                     <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Tabel Data Relasi - Kelas</h4>
+                            <h4>Tabel Data Relasi Matapelajaran- Kelas</h4>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
@@ -46,7 +46,7 @@
                                                 <td><?= $i++; ?></td>
                                                 <td><?= $r['nama_kelas']; ?></td>
                                                 <td class="text-center">
-                                                <a class="btn waves-effect waves-light btn-warning text-white" href="<?= base_url('relasi/relasiAccess/' .$r['id_kelas']) ?>"> <i class="fa fa-pencil-alt"></i> Role Access</a>
+                                                <a class="btn waves-effect waves-light btn-warning text-white" href="<?= base_url('relasi/relasiAccess/' .$r['id_kelas']) ?>"> <i class="fa fa-pencil-alt"></i> Matapelajaran Access</a>
                                                 <a class="btn waves-effect waves-light btn-danger text-white" href="<?= base_url('relasi/delete_role/' .$r['id_kelas']) ?>"> <i class="fa fa-trash"></i> Delete</a>
                                                 </td>
                                             </tr>
@@ -72,7 +72,7 @@
                                 <i data-feather="x"></i>
                             </button>
                         </div>
-                        <form action="<?= base_url('User/addrole'); ?>" method="post">
+                        <form action="<?= base_url('user/addrole'); ?>" method="post">
                             <div class="modal-body">
                             <div class="form-group">
                                                         <label for="menuname">Kelas Users</label>

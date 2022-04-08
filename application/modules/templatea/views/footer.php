@@ -1,7 +1,7 @@
 <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
+                        <p>Designed by Mohammad Bagus Chalil A</p>
                     </div>
                     <div class="float-end">
                     <?php
@@ -24,6 +24,8 @@
     <script src="<?= base_url(); ?>assets/js/main.js"></script>
     <script src="<?= base_url(); ?>assets/vendors/simple-datatables/simple-datatables.js"></script>	
     <script type="text/javascript" src="<?= base_url('assets/js/bootstrap.bundle.js');?>"></script>
+    <script src="<?= base_url(); ?>assets/vendor/chartist/dist/chartist.min.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
 
     <!--Custom Text Area -->
     <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>

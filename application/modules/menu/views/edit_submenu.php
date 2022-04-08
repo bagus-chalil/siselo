@@ -65,7 +65,8 @@
                                                     id="is_active" name="is_active" value="1" checked>
                                                 <label class="custom-control-label" for="customCheck1">Is
                                                     Active </label>
-                                            </div>               
+                                            </div>
+                                        </div>               
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" required

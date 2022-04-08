@@ -22,7 +22,7 @@
                   </div>
                   <div class="card-body">
                   <?= $this->session->flashdata('message'); ?>
-                      <form action="<?= base_url('Mapel/addmapel') ?>" method="POST" enctype="multipart/form-data">
+                      <form action="<?= base_url('mapel/addmapel') ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                       <label>Kode Mata Pelajaran</label>
                       <input type="text" class="form-control" readonly name="kode" value="<?php echo $id_m_mapel ?>">

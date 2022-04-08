@@ -11,7 +11,7 @@
               <div class="card-header"><h4>Login</h4></div>
               <?= $this->session->flashdata('message'); ?>
               <div class="card-body">
-                <form method="post" action="<?= base_url('Login') ?>" class="needs-validation" novalidate="">
+                <form method="post" action="<?= base_url('login') ?>" class="needs-validation" novalidate="">
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" value="<?= set_value('email'); ?>" required autofocus>

@@ -11,7 +11,7 @@ class Soal extends CI_Controller {
 		$this->load->model('M_Soal', 'soal');
 		$this->form_validation->set_error_delimiters('','');
         if ( $this->session->userdata['role_id'] != 2 ){
-			redirect('Templatef/blocked');
+			redirect('templatef/blocked');
 		}
 	}
 

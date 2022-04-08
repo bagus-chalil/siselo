@@ -49,13 +49,13 @@
 			<?php endforeach ?>
             <?php endforeach ?>
 			<li class="header">Mahasiswa</li>
-			<li class=""><a href="<?= base_url('Guru') ?>"><i class="fas fa-home"></i> <span> Home</span></a></li>
+			<li class=""><a href="<?= base_url('guru') ?>"><i class="fas fa-home"></i> <span> Home</span></a></li>
 		</ul>
 		<?php }else { ?>
 			<ul class="sidebar-menu" data-widget="tree">
 				<li class="header">Mahasiswa</li>
-				<li class="active"><a href="<?= base_url('Ujian') ?>"><i class="fas fa-edit"></i> <span> Ujian Online</span></a></li>
-				<li class=""><a href="<?= base_url('Kelas') ?>"><i class="fas fa-home"></i> <span> Home</span></a></li>
+				<li class="active"><a href="<?= base_url('ujian') ?>"><i class="fas fa-edit"></i> <span> Ujian Online</span></a></li>
+				<li class=""><a href="<?= base_url('kelas') ?>"><i class="fas fa-home"></i> <span> Home</span></a></li>
 			</ul>
 			<?php } ?>
 	</section>

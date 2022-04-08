@@ -55,7 +55,7 @@
 
                         <li class="sidebar-title">Advance features</li>
                         <li class="sidebar-item">
-                            <a href="<?= base_url('Login/logout') ?>" class='sidebar-link'>
+                            <a href="<?= base_url('login/logout') ?>" class='sidebar-link'>
                                 <i class="fas fa-fw fa-sign-out-alt"></i>
                                 <span>Logout</span>
                             </a>

@@ -29,7 +29,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Form <?= $title ?></h4>
+                                    <h4 class="card-title">Form Edit <?= $title ?></h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -67,7 +67,7 @@
                                     <div class="form-group">
                                     <label>Upload Images</label>
                                     <input type="file" name="gambar" class="form-control" id="customFile">
-                                    <input type="text" name="gambar1"  value="<?= $data_alat['gambar']?>" class="form-control" id="customFile">
+                                    <input type="hidden" name="gambar1"  value="<?= $data_alat['gambar']?>" class="form-control" id="customFile">
                                     </div>
                                     <button class="btn btn-primary" type="submit">Submit</button>
                                 </div>

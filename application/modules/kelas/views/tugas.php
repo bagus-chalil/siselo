@@ -17,7 +17,7 @@
             <p class="section-lead">Silahkan perhatikan detail tugas yang telah di berikan dan kumpulkan sesuai dengan instruksi dari <br> guru yang bersangkutan !</p>
             <?php
             $terlambat = strtotime($v_tugas['tgl_tugas']);
-            $now = time(); 
+            $now = time();
             ?>
             <div class="row">
                 <?php if ($v_tugas['tugas_id'] == $id and $tugas_siswa['tugas_id'] == $id) { ?>
@@ -29,7 +29,7 @@
                         <h4>Form Input Tugas</h4>
                       </div>
                       <div class="card-body">
-                          <form action="<?= base_url('Kelas/editTugas') ?>" method="POST" enctype="multipart/form-data">
+                          <form action="<?= base_url('kelas/editTugas') ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                           <label>Kode Mata Pelajaran</label>
                           <input type="text" class="form-control" readonly name="kode" value="<?= $v_tugas['id_m_mapel']?>" >
@@ -47,7 +47,7 @@
                         
                         <div class="form-group">
                             <label>Upload Dokumen Tugas</label>
-                            <a href="<?= base_url('Kelas/file/'.$tugas_siswa['dokumen_hasil']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $tugas_siswa['dokumen_hasil']; ?></a>
+                            <a href="<?= base_url('kelas/file/'.$tugas_siswa['dokumen_hasil']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $tugas_siswa['dokumen_hasil']; ?></a>
                             <input name="dokumen" type="file" class="form-control"/>
                             <input name="dokumen1" type="hidden" class="form-control" value="<?= $tugas_siswa['dokumen_hasil']?>"/>
                           </div>
@@ -70,7 +70,7 @@
                           <h4>Form Input Tugas</h4>
                         </div>
                         <div class="card-body">
-                            <form action="<?= base_url('Kelas/addTugas') ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?= base_url('kelas/addTugas') ?>" method="POST" enctype="multipart/form-data">
                           <div class="form-group">
                             <label>Kode Mata Pelajaran</label>
                             <input type="text" class="form-control" readonly name="kode" value="<?= $v_tugas['id_m_mapel']?>" >
@@ -135,7 +135,7 @@
                             <b>Kelas :</b> <?= $v_tugas['nama_kelas']?><br>
                             <b>Deskripsi Tugas :</b> <?= $v_tugas['deskripsi_tugas']?><br>
                             <b>Dokumen tugas* :</b><br> 
-                            <a href="<?= base_url('Kelas/file/'.$v_tugas['dokumen_tugas']); ?>"><i class="fas fa-fw fa-file-pdf"></i><?= $v_tugas['dokumen_tugas']; ?></a><br>
+                            <a href="<?= base_url('kelas/file/'.$v_tugas['dokumen_tugas']); ?>"><i class="fas fa-fw fa-file-pdf"></i><?= $v_tugas['dokumen_tugas']; ?></a><br>
                             <b>Status :</b> 
                             <?php if( $tugas_siswa['tugas_id'] == $id ) : ?>
                               <span class="badge rounded-pill bg-success text-dark">Sudah Mengumpulkan</span>
@@ -143,6 +143,14 @@
                                 <span class="badge rounded-pill bg-danger text-white">Belum Mengumpulkan</span>
                             <?php endif ; ?>  
                             <br>
+                        </p>
+                        <!-- Nilai -->
+                        <p class=ml-3>
+                        <?php if ($v_tugas['nilai'] > 0)  { ?>
+                                <b>Nilai :</b> <h5 class="text-center"><?= $v_tugas['nilai'] ?></h5>
+                                <br>
+                              <?php }else{?>        
+                              <?php }?> 
                         </p>
                         <h6>* Hanya Bersifat Opsional !</h6>
                       </div>

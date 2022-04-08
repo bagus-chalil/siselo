@@ -21,9 +21,9 @@
                     <h4> <?= $l['id_m_mapel']; ?> </h4>
                     <div class="card-header-action">
                     <div class="btn-group">
-                      <a href="<?= base_url('Mapel/editmapel/'.$l['id']); ?>" class="btn btn-primary text-white">Edit</a>
-                      <a href="<?= base_url('Mapel/hapus_mapel/'.$l['id']); ?>"class="btn btn-danger text-white deleteMapel"id="swal-6">Delete</a>
-                      <a href="<?= base_url('Guru/v_mapel/'.$l['id_m_mapel'])?>"class="btn btn-success text-white deleteMapel"id="swal-6">Data</a>
+                      <a href="<?= base_url('mapel/editmapel/'.$l['id']); ?>" class="btn btn-primary text-white">Edit</a>
+                      <a href="<?= base_url('mapel/hapus_mapel/'.$l['id']); ?>"class="btn btn-danger text-white deleteMapel"id="swal-6">Delete</a>
+                      <a href="<?= base_url('guru/v_mapel/'.$l['id_m_mapel'])?>"class="btn btn-success text-white deleteMapel"id="swal-6">Data</a>
                     </div>
                     <div class="dropdown">
                         <a href="#" data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Options</a>
@@ -41,7 +41,7 @@
                      <tbody>
                        <tr>
                          <td>
-                         <a href="<?= base_url('Mapel/file/'.$l['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $l['dokumen']; ?></a><br>
+                         <a href="<?= base_url('mapel/file/'.$l['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $l['dokumen']; ?></a><br>
                          </td>
                        </tr>
                         <?php
@@ -58,8 +58,8 @@
                                     <a href="" class="mt-5"> <i class="fas fa-fw fa-file-upload"></i> Tugas- <?= $sm['nama_tugas'] ; ?></a>   
                                 </td>
                                 <td class="float-right">
-                                <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url("Guru/edit_tugas/". $sm['id_tugas']); ?>"> <i class="fa fa-pencil-alt"></i> </a>
-                                <a class="btn waves-effect waves-light btn-danger text-white" href="<?= base_url("Guru/hapus_tugas/".$sm['id_tugas']); ?>"> <i class="fa fa-trash"></i> </a>
+                                <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url("guru/edit_tugas/". $sm['id_tugas']); ?>"> <i class="fa fa-pencil-alt"></i> </a>
+                                <a class="btn waves-effect waves-light btn-danger text-white" href="<?= base_url("guru/hapus_tugas/".$sm['id_tugas']); ?>"> <i class="fa fa-trash"></i> </a>
                                 </td>
                             <?php }else { ?>                                    
                             <?php } ?>
@@ -80,7 +80,7 @@
                                 </td>
                                 <td class="float-right">
                                 <a class="btn waves-effect waves-light btn-success text-white" data-toggle="modal" data-target="#exampleModalCenters1<?= $ms['id_absen'] ?>" > <i class="fa fa-pencil-alt"></i> </a>
-                                <a class="btn waves-effect waves-light btn-danger text-white" id="toastrs-2" href="<?= base_url("Guru/hapus_absensi/".$ms['id_absen']); ?>"> <i class="fa fa-trash"></i> </a>
+                                <a class="btn waves-effect waves-light btn-danger text-white" id="toastrs-2" href="<?= base_url("guru/hapus_absensi/".$ms['id_absen']); ?>"> <i class="fa fa-trash"></i> </a>
                                 </td>
                             <?php }else { ?>                                    
                             <?php } ?>
@@ -109,7 +109,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <form action="<?= base_url('Guru/add_tugas/') ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('guru/add_tugas/') ?>" method="POST" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Kode Tugas:</label>
                 <input type="text" class="form-control" id="k_tugas" readonly value="<?= $l['id_m_mapel']; ?>" name="k_tugas">
@@ -170,7 +170,7 @@
               </button>
             </div>
             <div class="modal-body">
-            <form action="<?= base_url('Guru/add_absensi/') ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('guru/add_absensi/') ?>" method="POST" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Kode Absensi:</label>
                 <input type="text" class="form-control" id="k_absensi" value="<?= $l['id_m_mapel']; ?>" name="k_absensi">
@@ -218,10 +218,10 @@
               </button>
             </div>
             <div class="modal-body">
-            <form action="<?= base_url('Guru/edit_absensi/'.$sl['id_absen']) ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('guru/edit_absensi/'.$sl['id_absen']) ?>" method="POST" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Kode Tugas:</label>
-                <input type="text" class="form-control" id="k_absensi" value="<?= $sl['m_mapel_id']; ?>" name="k_absensi">
+                <input type="text" readonly class="form-control" id="k_absensi" value="<?= $sl['m_mapel_id']; ?>" name="k_absensi">
               </div>
               <div class="form-group">
                       <label>Date Range Picker</label>

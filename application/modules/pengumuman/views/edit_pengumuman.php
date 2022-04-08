@@ -29,7 +29,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Form Edit Submenu</h4>
+                                    <h4 class="card-title">Form Edit Pengumuman</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
@@ -58,14 +58,22 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Dokumen Lama</label><br>
-                                            <a href="<?= base_url('Pengumuman/file/'.$pengumuman['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $pengumuman['dokumen']; ?></a>
+                                            <a href="<?= base_url('pengumuman/file/'.$pengumuman['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $pengumuman['dokumen']; ?></a>
                                         </div>
                                         <div class="form-group">
                                             <label>Upload Dokumen</label>
                                             <input name="dokumen" type="file" class="form-control"/>
                                             <input name="dokumen1" type="hidden" value="<?= $pengumuman['dokumen'];  ?>" class="form-control"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="is_active" name="is_active" value="1" checked>
+                                                <label class="custom-control-label" for="customCheck1">Is
+                                                    Active </label>
+                                            </div>
                                         </div>    
-                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
                                         </form>
                                     </div>
                                 </div>

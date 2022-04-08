@@ -3,7 +3,7 @@
 class MYPDF extends TCPDF {
 
     public function Header() {
-        $image_file = K_PATH_IMAGES.'logo_example.jpg';
+        $image_file = K_PATH_IMAGES.base_url('logo_example.jpg');
         $this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         $this->SetFont('helvetica', 'B', 18);
         $this->SetY(13);
@@ -73,13 +73,13 @@ Dolore distinctio, at consequuntur magnam cupiditate voluptate hic ratione ea il
     <tr>
         <th>Nama Ujian</th>
         <td>{$ujian->nama_ujian}</td>
-        <th>Mata Kuliah</th>
+        <th>Mata Pelajaran</th>
         <td>{$ujian->nama_matpel}</td> 
     </tr>
     <tr>
         <th>Jumlah Soal</th>
         <td>{$ujian->jumlah_soal}</td>
-        <th>Dosen</th>
+        <th>Guru</th>
         <td>{$ujian->nama_guru}</td>
     </tr>
     <tr>
@@ -110,9 +110,9 @@ $html .= <<<EOD
         <tr align="center">
             <th width="5%">No.</th>
             <th width="35%">Nama</th>
-            <th width="15%">Kelas</th>
-            <th width="10%">Jumlah Benar</th>
-            <th width="10%">Nilai</th>
+            <th width="25%">Kelas</th>
+            <th width="15%">Jumlah Benar</th>
+            <th width="15%">Nilai</th>
         </tr>        
     </thead>
     <tbody>

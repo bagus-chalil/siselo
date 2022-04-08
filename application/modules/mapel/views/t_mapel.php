@@ -26,7 +26,7 @@
                     <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Tabel Data Menu</h4>
+                            <h4>Tabel Data Matapelajaran</h4>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
@@ -68,13 +68,13 @@
                     role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white" id="myModalLabel33">Edit Form Menu</h4>
+                            <h4 class="modal-title text-white" id="myModalLabel33">Form Tambah Matapelajaran</h4>
                             <button type="button" class="close" data-bs-dismiss="modal"
                                 aria-label="Close">X
                                 <i data-feather="x"></i>
                             </button>
                         </div>
-                        <form action="<?= base_url('Mapel/addmatpel'); ?>" method="post">
+                        <form action="<?= base_url('mapel/addmatpel'); ?>" method="post">
                             <div class="modal-body">
                             <div class="form-group">
                                 <label for="menuname">Matapelajaran</label>
@@ -105,13 +105,13 @@
                     role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
-                            <h4 class="modal-title text-white" id="myModalLabel33">Edit Form Menu</h4>
+                            <h4 class="modal-title text-white" id="myModalLabel33">Edit Form Matapelajaran</h4>
                             <button type="button" class="close" data-bs-dismiss="modal"
                                 aria-label="Close">X
                                 <i data-feather="x"></i>
                             </button>
                         </div>
-                        <form action="<?= base_url('Mapel/editmatpel'); ?>" method="post">
+                        <form action="<?= base_url('mapel/editmatpel'); ?>" method="post">
                             <div class="modal-body">
                             <div class="form-group">
                                 <label for="menuname">Matapelajaran</label>

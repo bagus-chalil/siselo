@@ -3,7 +3,7 @@
     <div class="main-wrapper container">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
-        <a href="<?php echo base_url('Kelas/');?>" class="navbar-brand sidebar-gone-hide">LMS - SISELO</a>
+        <a href="<?php echo base_url('kelas/');?>" class="navbar-brand sidebar-gone-hide">LMS - SISELO</a>
         <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
         <div class="nav-collapse">
           <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
@@ -18,7 +18,7 @@
             <div class="d-sm-none d-lg-inline-block">Hi, <?= $user['name'] ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Logged in 5 min ago</div>
-              <a href="<?= base_url('Profil/profil_siswa');?>" class="dropdown-item has-icon">
+              <a href="<?= base_url('profil/profil_siswa');?>" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
               <a href="features-activities.html" class="dropdown-item has-icon">
@@ -28,7 +28,7 @@
                 <i class="fas fa-cog"></i> Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a href="<?= base_url('Login/logout')?>" class="dropdown-item has-icon text-danger">
+              <a href="<?= base_url('login/logout')?>" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>

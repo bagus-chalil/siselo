@@ -53,7 +53,7 @@
                     </tr>
                     <tr>
                         <th>Nilai Terendah</th>
-                        <td><?=$nilai->min_nilai?></td>
+                        <td><?=$nilai1->min_nilai?></td>
                     </tr>
                     <tr>
                         <th>Nilai Tertinggi</th>

@@ -28,7 +28,7 @@
                           <div class="avatar-badge mx-5"> <a href="" class="btn"><i class="fas fa-pencil-alt"></i></a></div>
                         </div>
                       </div>
-                  <form action="<?= base_url('Profil/edit_profile/') ?>" enctype="multipart/form-data" method="POST" class="needs-validation" novalidate="">
+                  <form action="<?= base_url('profil/edit_profile/') ?>" enctype="multipart/form-data" method="POST" class="needs-validation" novalidate="">
                     <div class="card-body">
                       <div class="row">                               
                           <div class="form-group col-md-6 col-12">
@@ -37,10 +37,19 @@
                             <input type="hidden" class="form-control" name="id" value="<?= $data_profile['id']; ?>" required="">
                             <input type="text" class="form-control" name="name" value="<?= $data_profile['name']; ?>" required="">
                           </div>
+                          <?php 
+                          $nisn = $this->session->userdata('nisn');
+                          if ($nisn > 0) { ?>
                           <div class="form-group col-md-6 col-12">
                             <label>NISN</label>
                             <input type="text" readonly class="form-control" name="nisn" value="<?= $data_profile['nisn']; ?>" required="">
                           </div>
+                          <?php }else{?>
+                          <div class="form-group col-md-6 col-12">
+                            <label>NISN</label>
+                            <input type="text" class="form-control" name="nisn" value="<?= $data_profile['nisn']; ?>" required="">
+                          </div>
+                          <?php } ?>
                         </div>
                         <div class="row">
                           <div class="form-group col-md-6 col-12">
@@ -64,16 +73,32 @@
                               <select class="form-control select2" name="matpel">
                                 <option value="<?= $data_profile['matpel_id']; ?>"><?= $data_profile['nama_matpel']?></option>
                                 <option >-- Pilihan --</option>
-                                <?php foreach($matpel as $k) : ?>
-                                    <option value="<?= $k['id_matpel']; ?>"><?= $k['nama_matpel']?></option>
+                                <?php foreach($matpel as $m) : ?>
+                                    <option value="<?= $m['id_matpel']; ?>"><?= $m['nama_matpel']?></option>
                                 <?php endforeach; ?>
                               </select>
                             </div>
                             <?php }else { ?>
+                              <div class="form-group col-md-6 col-12">
+                              <label>Role id</label><br>
+                              <select class="form-control select2" name="kelas">
+                                <option value="<?= $data_profile['role_id']; ?>"><?= $data_profile['nama_kelas']?></option>
+                                <option >-- Pilihan --</option>
+                                <?php foreach($role as $r) : ?>
+                                    <option value="<?= $r['id']; ?>"><?= $r['role']?></option>
+                                <?php endforeach; ?>
+                              </select>
+                              </div>
                             <?php } ?>
                           <div class="form-group col-md-6 col-12">
                             <label>Kelas</label>
-                            <input type="text" class="form-control" name="kelas" readonly value="<?= $data_profile['kelas_id']; ?>">
+                            <select class="form-control select2" name="kelas">
+                                <option value="<?= $data_profile['kelas_id']; ?>"><?= $data_profile['nama_kelas']?></option>
+                                <option >-- Pilihan --</option>
+                                <?php foreach($kelas as $k) : ?>
+                                    <option value="<?= $k['id_kelas']; ?>"><?= $k['nama_kelas']?></option>
+                                <?php endforeach; ?>
+                              </select>
                           </div>
                         </div>
                         <div class="row">
@@ -118,7 +143,7 @@
                         <input name="email"type="hidden" value="<?= $l['email'] ?>" class="form-control"/>
                         <input name="name" type="hidden" value="<?= $l['name'] ?>" class="form-control"/>
                         <input type="file" name="image" class="form-control" id="customFile">
-                        <input type="text" name="image1" class="form-control" value="<?= $user['image'] ?>">
+                        <input type="hidden" name="image1" class="form-control" value="<?= $user['image'] ?>">
                       </div>
             </div>
             <div class="modal-footer">

@@ -6,6 +6,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_Soal extends CI_Model
 {
+    public function user_login($email){
+		$query = "SELECT `user`.*,`siswa`.*,`guru`.* 
+					FROM `user`
+					LEFT JOIN `siswa`
+					ON `siswa`.`user_id`=`user`.`id`
+					LEFT JOIN `guru`
+					ON `guru`.`user_id`=`user`.`id`
+					WHERE `user`.`email`= '$email'";
+        return $this->db->query($query)->row_array();
+	}
     public function getDataSoal($id, $guru)
     {
         $this->datatables->select('a.id_soal, a.soal, FROM_UNIXTIME(a.created_on) as created_on, FROM_UNIXTIME(a.updated_on) as updated_on, b.nama_matpel, c.nama_guru');
@@ -26,14 +36,12 @@ class M_Soal extends CI_Model
         $this->db->join('matpel b', 'a.matpel_id=b.id_matpel');
         return $this->db->get()->result();
     }
-	public function getMatpelGuru()
+	public function getMatpelGuru($nip)
     {
-		$nip=$this->session->userdata('nisn');
-
-        $this->db->select('matpel_id, nama_matpel, id_guru, nama_guru');
-        $this->db->join('matpel', 'matpel_id=id_matpel');
-        $this->db->from('guru')->where('nip', $nip);
-        return $this->db->get()->row();
+        $query="SELECT matpel_id, nama_matpel, id_guru, nama_guru FROM guru 
+        JOIN matpel on matpel_id=id_matpel
+        WHERE nip=$nip";
+        return $this->db->query($query)->row();
     }
 	public function getSoalById($id)
     {

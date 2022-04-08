@@ -34,9 +34,8 @@
                                     <div class="card-body">
                                         <?= $this->session->flashdata('message'); ?>
                                     <h4 class="card-title mt-2 mb-2">Role : <?= $role['role'] ?></h4>
-                                    <h6 class="card-subtitle mt-2">On a per-column basis (i.e. order by a specific column and
-                                        then a secondary column if the data in the first column is identical), through the
-                                        <code> columns.orderData</code> option.
+                                    <h6 class="card-subtitle mt-2">Untuk mengubah hak akses silahkan beri
+                                        <code> checklist</code> pada akses yang diinginkan.
                                     </h6>
                                         <!-- Table with outer spacing -->
                                         <div class="table-responsive">

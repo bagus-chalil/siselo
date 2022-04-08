@@ -23,7 +23,7 @@
                   </div>
                   <div class="card-body">
                   <?= $this->session->flashdata('message'); ?>
-                      <form action="<?= base_url('Guru/edit_data_tugas/'.$tugas_e['id_tugas']); ?>" method="POST" enctype="multipart/form-data">
+                      <form action="<?= base_url('guru/edit_data_tugas/'.$tugas_e['id_tugas']); ?>" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                       <label>Kode Mata Pelajaran</label>
                       <input type="hidden" class="form-control" readonly name="id" value="<?= $tugas_e['id_tugas']; ?>">

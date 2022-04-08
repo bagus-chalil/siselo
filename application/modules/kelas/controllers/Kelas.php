@@ -6,7 +6,7 @@ class Kelas extends CI_Controller {
 		parent::__construct();
 		$this->load->model('M_Kelas','kelas');
 		if ( $this->session->userdata['role_id'] != 3 ){
-			redirect('Templatef/blocked');
+			redirect('templatef/blocked');
 		}
 	}
 
@@ -59,7 +59,7 @@ class Kelas extends CI_Controller {
 		$this->db->insert('absensi_siswa',$data1);
 		$this->session->set_flashdata('message','<div class="alert alert-success"
 		role="alert">Absen telah berhasil !!!</div>');
-		redirect('Kelas/v_kelas_id/'.$data);
+		redirect('kelas/v_kelas_id/'.$data);
 	}
 	public function v_tugas($id_tugas)
 	{
@@ -112,7 +112,7 @@ class Kelas extends CI_Controller {
 			$this->db->insert('tugas_siswa',$data);
 			$this->session->set_flashdata('message','<div class="alert alert-primary"
 			role="alert">Tugas Berhasil Dikumpulkan !!!</div>');
-			redirect('Kelas/v_tugas/'.$url);
+			redirect('kelas/v_tugas/'.$url);
 		}
 	}
 	public function editTugas(){
@@ -150,7 +150,7 @@ class Kelas extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 		Tugas Siswa has been Update!
 		</div>');
-			redirect('Kelas/v_tugas/'.$url);
+			redirect('kelas/v_tugas/'.$url);
 		} else {
 			$old_document = $this->input->post('dokumen1');
 			if ($old_document != 'NULL') {
@@ -170,7 +170,7 @@ class Kelas extends CI_Controller {
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 		Tugas has been Update!
 		</div>');
-			redirect('Kelas/v_tugas/'.$url);
+			redirect('kelas/v_tugas/'.$url);
 			}
 		}
 	}

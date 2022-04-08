@@ -148,17 +148,19 @@
                                   <td><?= $v['name'] ?></td>
                                   <td><?= $v['nama_kelas'] ?></td>
                                   <td><?= $v['nisn'] ?></td>
-                                  <?php if ($v['id_m_mapel'] == $id_Matpel ) { ?>
-                                  <td><?= format_indo(date('Y-m-d' ,$v['tgl_absen_siswa'])); ?></td>
+                                  <td><?= format_indo(date('Y-m-d' ,$v['tgl_absen_siswa']));?></td>
                                   <td><?= date('H:i:s' ,$v['tgl_absen_siswa']); ?> WIB</td>
-                                  <td><a class="btn btn-success text-white">Sudah Absen</a></td>
-                                  <?php }else{?>
-                                  <td></td>
-                                  <td></td>
-                                  <td><a class="btn btn-danger text-white">Belum Absen</a></td>
-                                  <?php }?>
+                                <?php 
+                                $batas=strtotime($absen['tgl_absen']);
+                                $waktu=$v['tgl_absen_siswa'];
+                                ?>
+                                <?php if ($waktu > $batas)  { ?>
+                                  <td><a class="btn btn-danger text-white">Terlmbat</a></td>
+                                <?php }else{?>
+                                    <td><a class="btn btn-success text-white">Tepat Waktu</a></td>
+                                <?php }?>
                                 </tr>
-                                <?php endforeach; ?>
+                              <?php endforeach; ?>
                               </tbody>
                             </table>
                           </div>
@@ -231,6 +233,8 @@
                                   <th>Tanggal Tugas</th>
                                   <th>Waktu Mengumpulkan</th>
                                   <th>Dokumen</th>
+                                  <th>Status</th>
+                                  <th>Nilai</th>
                                 </tr>
                               </thead>
                               <tbody class="text-center">
@@ -254,7 +258,10 @@
                               $tugas_v = $this->db->query($query)->result_array(); ?>
                               <?php foreach ($tugas_v as $l) :?>
                                 <?php if ($l['tugas_id'] == $t['id_tugas']) { ?>
-                                
+                                <?php 
+                                $batas=strtotime($t['tgl_tugas']);
+                                $waktu=$l['waktu_pengumpulan'];
+                                ?>
                                 <tr>
                                   <td><?= $i++;?></td>
                                   <td><?= $l['name'] ?></td>
@@ -264,9 +271,21 @@
                                   <td><?= format_indo(date('Y-m-d' ,$l['waktu_pengumpulan'])); ?></td>
                                   <td><?= date('H:i:s' ,$l['waktu_pengumpulan']); ?> WIB</td>
                                   <td><a href="<?= base_url('Guru/file/'.$l['dokumen_hasil']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $l['dokumen_hasil']; ?></a></td>
-                                </tr>
-                                  <?php }else if ($l['id_m_mapel'] != $id_Matpel){?>
-                                    <?php } ?>
+                                  <!-- Absen -->
+                                  <?php if ($waktu > $batas)  { ?>
+                                      <td><a class="btn btn-danger text-white">Terlambat</a></td>
+                                  <?php }else{?>
+                                      <td><a class="btn btn-success text-white">Tepat Waktu</a></td>
+                                  <?php }?>
+                                  <!-- Nilai -->
+                                  <?php if ($l['nilai'] > 0)  { ?>
+                                      <td><?= $l['nilai'] ?></td>
+                                  <?php }else{?>
+                                      <td><a class="btn btn-primary text-white" data-toggle="modal" data-target="#exampleModalCenters<?= $l['id'] ?>">Input</a></td>
+                                  <?php }?>
+                                  </tr>
+                                    <?php }else if ($l['id_m_mapel'] != $id_Matpel){?>
+                                  <?php } ?>
                                 </tr>
                                 <?php endforeach; ?>
                               </tbody>
@@ -283,4 +302,46 @@
           </div>
         </section>
       </div>
-      
+      <!-- Modal Tugas Tambah-->
+      <?php $i =1;?>
+      <?php foreach ($tugas_v as $l) :?>
+      <div class="modal fade" id="exampleModalCenters<?= $l['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Form Nilai Tugas Siswa</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form action="<?= base_url('guru/update_nilai/') ?>" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Nama Tugas:</label>
+                <input type="hidden" class="form-control" id="id" readonly value="<?= $l['id']; ?>" name="id">
+                <input type="hidden" class="form-control" id="id_mapel" readonly value="<?= $l['m_mapelId']; ?>" name="id_mapel">
+                <input type="text" class="form-control" id="n_tugas" readonly value="<?= $l['nama_tugas']; ?>" name="n_tugas">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Nama Siswa:</label>
+                <input type="text" class="form-control" id="n_siswa" name="n_siswa" readonly value="<?= $l['name']; ?>">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">NISN Siswa:</label>
+                <input type="text" class="form-control" id="n_siswa" name="n_siswa" readonly value="<?= $l['nisn']; ?>">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Masukkan Nilai Siswa:</label>
+                <input type="text" class="form-control" id="nilai" name="nilai">
+              </div>
+            </div>
+            <hr>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endforeach; ?>

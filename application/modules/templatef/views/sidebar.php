@@ -39,8 +39,17 @@
               </li> 
               <?php endforeach ?>
             <?php endforeach ?>
-            <li class="menu-header"> Ujian Online </li>
-            <li><a class="nav-link active" href="<?= base_url('Soal') ?>"><i class="fas fa-file-import"></i> <span> Halaman Ujian </span></a></li>
+            <?php 
+            $role_id = $this->session->userdata('role_id');
+            if ($role_id== 4) { ?>
+              <li class="menu-header"> Halaman Utama </li>
+              <li><a class="nav-link active" href="<?= base_url('website') ?>"><i class="fas fa-globe-asia"></i> <span> Website </span></a></li>
+              <li class="menu-header"> Profil </li>
+              <li><a class="nav-link active" href="<?= base_url('profil') ?>"><i class="fas fa-user-edit"></i> <span> Profil </span></a></li>
+            <?php }else{?>
+              <li class="menu-header"> Ujian Online </li>
+            <li><a class="nav-link active" href="<?= base_url('soal') ?>"><i class="fas fa-file-import"></i> <span> Halaman Ujian </span></a></li>
+            <?php } ?>
           </ul>
 
           <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

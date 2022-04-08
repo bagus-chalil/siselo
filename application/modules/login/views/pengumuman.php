@@ -53,10 +53,10 @@
       <nav class="nav-menu d-none d-lg-block">
 
         <ul>
-          <li><a href="<?= base_url('Login/awal') ?>">Beranda</a></li>
-          <li><a href="<?= base_url('Login/awal') ?>">Siswa</a></li>
-          <li><a href="<?= base_url('Login/awal') ?>">Guru</a></li>
-          <li class="active"><a href="<?= base_url('Login/pengumuman') ?>">Pengumuman</a></li>
+          <li><a href="<?= base_url('login/awal') ?>">Beranda</a></li>
+          <li><a href="<?= base_url('login/awal') ?>">Siswa</a></li>
+          <li><a href="<?= base_url('login/awal') ?>">Guru</a></li>
+          <li class="active"><a href="<?= base_url('login/pengumuman') ?>">Pengumuman</a></li>
 
 
         </ul>
@@ -64,7 +64,7 @@
       </nav><!-- .nav-menu -->
 
       <!-- <a href="index.html" class="get-started-btn">Get Started</a> -->
-      <a href="<?= base_url('Login') ?>" class="login-btn ml-auto">Login</a>
+      <a href="<?= base_url('login') ?>" class="login-btn ml-auto">Login</a>
 
     </div>
   </header><!-- End Header -->
@@ -94,7 +94,7 @@
                         <h6 class="mt-0">Updated <?= waktu_indo($pm['tgl_pengumuman']);?> WIB</h6>
                         <hr>
                         <p class="mb-0"><?= $pm['deskripsi'] ?></p>
-                        <p><a href="<?= base_url('Pengumuman/file/'.$pm['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $pm['dokumen']; ?></a></p>
+                        <p><a href="<?= base_url('pengumuman/file/'.$pm['dokumen']); ?>"> <i class="fas fa-fw fa-file-pdf"></i> <?= $pm['dokumen']; ?></a></p>
                       </div>
                     </div>
                   </div>

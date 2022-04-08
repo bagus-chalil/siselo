@@ -26,7 +26,7 @@
                     <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Tabel Data Menu</h4>
+                            <h4>Tabel Data Submenu</h4>
                         </div>
                         <div class="card-body">
                             <?= $this->session->flashdata('message'); ?>
@@ -39,7 +39,7 @@
                                         <th>Menu</th>
                                         <th>Url</th>
                                         <th>Icon</th>
-                                        <th>Active</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -52,7 +52,16 @@
                                             <td><?= $sm['menu']; ?></td>
                                             <td><?= $sm['url']; ?></td>
                                             <td><?= $sm['icon']; ?></td>
-                                            <td><?= $sm['is_active']; ?></td>
+                                            <td>
+                                            <?php if ($sm['is_active'] == 0) { ?>
+                                            <span class="badge rounded-pill bg-warning text-white">Tidak aktif</span>
+                                            <?php } else if ($sm['is_active'] == 1 ){ ?>
+                                                <span class="badge rounded-pill bg-success text-white">Aktif</span>
+                                            <?php }else { ?>
+                                            <?= $sm['is_active'] ?>
+                                                <span class="badge rounded-pill bg-danger text-dark">Tidak ditemukan</span>
+                                            <?php } ?>
+                                            </td>
                                             <td class="text-center">
                                                 <a class="btn waves-effect waves-light btn-success text-white" href="<?= base_url('menu/edit_submenu/' . $sm['id']) ?>"> <i class="fa fa-pencil-alt"></i> Edit</a>
                                                 <a class="btn waves-effect waves-light btn-danger text-white" href="<?= base_url('menu/delete_submenu/' . $sm['id']) ?>"> <i class="fa fa-trash"></i> Delete</a>
